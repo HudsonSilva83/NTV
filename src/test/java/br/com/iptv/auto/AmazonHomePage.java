@@ -33,6 +33,10 @@ public class AmazonHomePage extends BasePage {
 
 	public void clicarMenuLembretesAlarme() {
 		clicarId("iTimersAndAlarms");
+		
+		
+		//clicar(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/nav[1]/dl[1]/dd[5]"));
+		
 
 	}
 

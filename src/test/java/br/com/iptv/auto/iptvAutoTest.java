@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,33 +22,40 @@ public class iptvAutoTest {
 	private WebDriver driver;
 	private iptvHomePage homePage;
 	private AmazonHomePage amazonHomePage;
+	Dimension d = new Dimension(1080, 1000);
 
 	@BeforeEach
 	public void inicio() {
 
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-dev-shm-usage");
+		// options.addArguments("--no-sandbox");
+		// options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--headless");
 		options.addArguments("--window-size=1200,800");
-		options.addArguments(
-				"-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+		// options.addArguments(
+		// "-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,
+		// like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		// driver.manage().window().maximize();
 
 		// driver = new ChromeDriver();
 		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-		driver.get("https://pltf.vip/login");
-		homePage = new iptvHomePage(driver);
 		amazonHomePage = new AmazonHomePage(driver);
 
 	}
 
 	@Test
 	public void teste() throws InterruptedException {
-		Thread.sleep(3000);
-		homePage.lo();
+
+		driver.get("https://pltf.vip/login");
+
+		homePage = new iptvHomePage(driver);
+		amazonHomePage = new AmazonHomePage(driver);
+		Thread.sleep(8000);
+		homePage.preeencherUsuario();
+		homePage.preeencherSenha();
+		homePage.botaoLogar();
 		Thread.sleep(6000);
 		String fichas = homePage.obterFichas();
 		int ficha = Integer.parseInt(fichas);
@@ -62,7 +70,10 @@ public class iptvAutoTest {
 
 		if (dataExpiracao != dataAtual && ficha == 0) {
 
+			driver.manage().window().setSize(d);
+
 			amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
+			Thread.sleep(2000);
 			amazonHomePage.autenticarAmazon();
 			Thread.sleep(7000);
 			amazonHomePage.clicarMenuLembretesAlarme();
@@ -125,14 +136,14 @@ public class iptvAutoTest {
 
 					// homePage.selecionarPlano25();
 
-					// WebElement myDynamicElement = (new WebDriverWait(driver, 15))
-					// .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div
-
 					// homePage.quantidade();
 
 					homePage.botaoRenovar();
 
 					Thread.sleep(1000);
+
+					driver.manage().window().setSize(d);
+
 					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 					amazonHomePage.autenticarAmazon();
 					Thread.sleep(7000);
@@ -171,6 +182,8 @@ public class iptvAutoTest {
 					amazonHomePage.butonSalvar();
 
 				} else {
+
+					driver.manage().window().setSize(d);
 
 					Thread.sleep(1000);
 					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
@@ -213,14 +226,16 @@ public class iptvAutoTest {
 
 			} else {
 
-				// avisar a alexa
+				driver.manage().window().setSize(d);
+
 				amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 				amazonHomePage.autenticarAmazon();
 				Thread.sleep(7000);
 				amazonHomePage.clicarMenuLembretesAlarme();
 				Thread.sleep(1000);
 				amazonHomePage.butonAdicionarLembretes();
-				amazonHomePage.escreverlembrete("A data de expiração será "+dataExpiracao+" e têm "+ficha+" créditos no momento");
+				amazonHomePage.escreverlembrete(
+						"A data de expiração será " + dataExpiracao + " e têm " + ficha + " créditos no momento");
 				amazonHomePage.clicarData();
 				// Thread.sleep(3000);
 				// amazonHomePage.enterData();

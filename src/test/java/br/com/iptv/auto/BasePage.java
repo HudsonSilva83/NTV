@@ -1,5 +1,6 @@
 package br.com.iptv.auto;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class BasePage {
 		@SuppressWarnings("deprecation")
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(id_campo)));
-
+     
 		escrever(By.id(id_campo), texto);
 
 	}
@@ -112,8 +113,11 @@ public class BasePage {
 	}
 
 	public void clicar(By by) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.presenceOfElementLocated((by)));
+//		WebDriverWait wait = new WebDriverWait(driver, 30);
+//		wait.until(ExpectedConditions.presenceOfElementLocated((by)));
+		
+		WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(30))
+		        .until(ExpectedConditions.elementToBeClickable(by));
 
 		driver.findElement(by).click();
 

@@ -13,12 +13,24 @@ public class iptvHomePage extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void lo() {
+	public void botaoLogar() throws InterruptedException {
+
+		clicar(By.xpath("//*[@id=\"aa4751x2\"]/div/main/div/div/div/div/div/form/div/div[2]/div[4]/button/span"));
+
+	}
+
+	public void preeencherUsuario() throws InterruptedException {
+
+		Thread.sleep(1000);
 		clicar(By.id("input-13"));
 		escrever(By.id("input-13"), "hudsonsilva");
+
+	}
+
+	public void preeencherSenha() throws InterruptedException {
+
 		clicar(By.id("input-17"));
 		escrever(By.id("input-17"), "hpereira7");
-		clicar(By.xpath("//*[@id=\"aa4751x2\"]/div/main/div/div/div/div/div/form/div/div[2]/div[4]/button/span"));
 
 	}
 
@@ -28,81 +40,73 @@ public class iptvHomePage extends BasePage {
 				"/html/body/div[1]/div/div/div/div/div[2]/nav/div[1]/div[1]/div/div[2]/div/div[2]/button/span/b"));
 
 	}
-	
+
 	public void recuarModal() {
-		
+
 		clicar(By.xpath("//*[@id='aa4751x2']/div[2]/nav/div[1]/div[1]/div/div[1]/button"));
-		
-		
+
 	}
-	
-	
+
 	public void acessarMenuListas() throws InterruptedException {
-		
+
 		clicar(By.cssSelector("a[href=\"/list\"]"));
 		Thread.sleep(5000);
 		scrollar2();
-		
+
 	}
-	
+
 	public void scrollarTela() {
 		scrollar();
-		
+
 	}
 
-public void clicarBotaoNilson() {
-	clicar(By.xpath("/html/body/div[1]/div/div/div/div/div[1]/main/div/div/div/div/div[4]/div[1]/div/table/tbody/tr[1]/td[8]"));
-	//clicarBotaoTabela(null, null, null, null);
-	//sclicar(By.xpath("//*[@id=\"aa4751x2\"]/div[1]/main/div/div/div/div/div[4]/div[1]/div/table/tbody/tr[3]/td[8]"));
-	
-}
+	public void clicarBotaoNilson() {
+		clicar(By.xpath(
+				"/html/body/div[1]/div/div/div/div/div[1]/main/div/div/div/div/div[4]/div[1]/div/table/tbody/tr[1]/td[8]"));
+		// clicarBotaoTabela(null, null, null, null);
+		// sclicar(By.xpath("//*[@id=\"aa4751x2\"]/div[1]/main/div/div/div/div/div[4]/div[1]/div/table/tbody/tr[3]/td[8]"));
 
-public void menuRenovar() {
-	
-	
-	
-	clicar(By.xpath("/html/body/div[1]/div/div/div/div/div[2]/div/div[2]/div"));
-}
+	}
 
+	public void menuRenovar() {
 
+		clicar(By.xpath("/html/body/div[1]/div/div/div/div/div[2]/div/div[2]/div"));
+	}
 
-public void selecionarPlano1() {
-	
-	//selectCombo(By.cssSelector("div [class=\"v-list v-select-list v-sheet theme--light theme--light\"]"), "Plano Basico, R$ 25,00");
-	//clicar(By.xpath("//*[@id=\"list-item-261-0\"]")); esse
-	clicar(By.id("list-item-266-0"));
-	
-}
+	public void selecionarPlano1() {
 
+		// selectCombo(By.cssSelector("div [class=\"v-list v-select-list v-sheet
+		// theme--light theme--light\"]"), "Plano Basico, R$ 25,00");
+		// clicar(By.xpath("//*[@id=\"list-item-261-0\"]")); esse
+		clicar(By.id("list-item-266-0"));
 
-public void comboSelecionar() {
-	
-	
-	clicar(By.cssSelector("div[class=\"v-select__selections\"]"));
-}
+	}
 
+	public void comboSelecionar() {
 
-public void quantidade() {
-	
-	slider(By.cssSelector("div[class=\"v-slider v-slider--horizontal theme--light\"]"));
-	
-	
-	
-}
+		clicar(By.cssSelector("div[class=\"v-select__selections\"]"));
+	}
 
-public void botaoRenovar() {
-	clicar(By.cssSelector("button[class=\"v-btn v-btn--has-bg theme--light v-size--default primary\"]"));
-	
-}
+	public void quantidade() {
 
-public void selecionarPlano25() {
-	clicar(By.xpath("//div[contains(text(),'Plano Basico, R$ 25,00')]"));
-	
-}
+		slider(By.cssSelector("div[class=\"v-slider v-slider--horizontal theme--light\"]"));
 
-public String  obterDataExpiracao() {
-	return obterTexto(By.xpath("/html/body/div[1]/div/div/div/div/div[1]/main/div/div/div/div/div[4]/div[1]/div/table/tbody/tr[1]/td[7]"));
-	
-}
+	}
+
+	public void botaoRenovar() {
+		clicar(By.cssSelector("button[class=\"v-btn v-btn--has-bg theme--light v-size--default primary\"]"));
+
+	}
+
+	public void selecionarPlano25() {
+		clicar(By.xpath("//div[contains(text(),'Plano Basico, R$ 25,00')]"));
+
+	}
+
+	public String obterDataExpiracao() {
+		return obterTexto(By.xpath(
+				"/html/body/div[1]/div/div/div/div/div[1]/main/div/div/div/div/div[4]/div[1]/div/table/tbody/tr[1]/td[7]"));
+
+	}
 
 }
