@@ -30,13 +30,13 @@ public class iptvAutoTest {
 
 		
 		
-		 driver = new FirefoxDriver();
+		 
 		 System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
 
 		 FirefoxOptions options = new FirefoxOptions();
 		 options.addArguments("--headless");
 		
-		 
+		 driver = new FirefoxDriver(options);
 
 		
 		
