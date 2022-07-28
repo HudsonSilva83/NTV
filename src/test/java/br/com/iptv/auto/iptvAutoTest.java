@@ -81,7 +81,7 @@ public class iptvAutoTest {
 			amazonHomePage.b();
 			Thread.sleep(7000);
 			amazonHomePage.clicarMenuLembretesAlarme();
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 			amazonHomePage.butonAdicionarLembretes();
 			amazonHomePage
 					.escreverlembrete("A expiração do IPETÊVÊ é " + dataExpiracao + " porém o saldo é de " + ficha);
@@ -157,7 +157,7 @@ public class iptvAutoTest {
 
 					Thread.sleep(9000);
 					amazonHomePage.clicarMenuLembretesAlarme();
-					Thread.sleep(1000);
+					Thread.sleep(5000);
 					amazonHomePage.butonAdicionarLembretes();
 					amazonHomePage
 							.escreverlembrete("Renovado os créditos para Nilson agora o saldo é de " + (ficha - 1));
@@ -203,7 +203,7 @@ public class iptvAutoTest {
 					amazonHomePage.b();
 					Thread.sleep(9000);
 					amazonHomePage.clicarMenuLembretesAlarme();
-					Thread.sleep(1000);
+					Thread.sleep(5000);
 					amazonHomePage.butonAdicionarLembretes();
 					amazonHomePage.escreverlembrete("Acabaram os créditos do IPETÊVÊ saldo é de " + ficha);
 					amazonHomePage.clicarData();
@@ -250,7 +250,7 @@ public class iptvAutoTest {
 				amazonHomePage.b();
 				Thread.sleep(9000);
 				amazonHomePage.clicarMenuLembretesAlarme();
-				Thread.sleep(1000);
+				Thread.sleep(5000);
 				amazonHomePage.butonAdicionarLembretes();
 				amazonHomePage.escreverlembrete(
 						"A data de expiração será " + dataExpiracao + " e têm " + ficha + " créditos no momento");
