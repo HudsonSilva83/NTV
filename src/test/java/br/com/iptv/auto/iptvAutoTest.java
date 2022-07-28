@@ -58,6 +58,16 @@ public class iptvAutoTest {
 		homePage.botaoLogar();
 
 		Thread.sleep(8000);
+		try {
+			
+			
+			String fichas = homePage.obterFichas();
+			
+		} catch (Exception e) {
+			System.out.println("Deu treta do repecha" + e);
+		}
+		
+		
 		String fichas = homePage.obterFichas();
 		int ficha = Integer.parseInt(fichas);
 		homePage.acessarMenuListas();
@@ -75,7 +85,9 @@ public class iptvAutoTest {
 
 			amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 			Thread.sleep(2000);
-			amazonHomePage.autenticarAmazon();
+			amazonHomePage.usu();
+			amazonHomePage.s();
+			amazonHomePage.b();
 			Thread.sleep(7000);
 			amazonHomePage.clicarMenuLembretesAlarme();
 			Thread.sleep(1000);
@@ -148,8 +160,11 @@ public class iptvAutoTest {
 
 					driver.manage().window().setSize(d);
 
-					amazonHomePage.autenticarAmazon();
-					Thread.sleep(7000);
+					amazonHomePage.usu();
+					amazonHomePage.s();
+					amazonHomePage.b();
+
+					Thread.sleep(9000);
 					amazonHomePage.clicarMenuLembretesAlarme();
 					Thread.sleep(1000);
 					amazonHomePage.butonAdicionarLembretes();
@@ -192,8 +207,10 @@ public class iptvAutoTest {
 
 					Thread.sleep(1000);
 
-					amazonHomePage.autenticarAmazon();
-					Thread.sleep(7000);
+					amazonHomePage.usu();
+					amazonHomePage.s();
+					amazonHomePage.b();
+					Thread.sleep(9000);
 					amazonHomePage.clicarMenuLembretesAlarme();
 					Thread.sleep(1000);
 					amazonHomePage.butonAdicionarLembretes();
@@ -237,8 +254,10 @@ public class iptvAutoTest {
 				driver.manage().window().setSize(d);
 
 				Thread.sleep(1000);
-				amazonHomePage.autenticarAmazon();
-				Thread.sleep(7000);
+				amazonHomePage.usu();
+				amazonHomePage.s();
+				amazonHomePage.b();
+				Thread.sleep(9000);
 				amazonHomePage.clicarMenuLembretesAlarme();
 				Thread.sleep(1000);
 				amazonHomePage.butonAdicionarLembretes();

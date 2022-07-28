@@ -23,10 +23,23 @@ public class AmazonHomePage extends BasePage {
 
 	}
 
-	public void autenticarAmazon() {
+	public void usu() {
 
 		escrever("ap_email", "hu.psilva@gmail.com");
+	
+
+	}
+	
+	public void s() {
+
+	
 		escrever("ap_password", "@AnnaIra83");
+	
+
+	}
+	
+	public void b() {
+
 		clicarId("signInSubmit");
 
 	}
