@@ -13,6 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,20 +28,40 @@ public class iptvAutoTest {
 	@BeforeEach
 	public void inicio() {
 
-		ChromeOptions options = new ChromeOptions();
-		// options.addArguments("--no-sandbox");
-		// options.addArguments("--disable-dev-shm-usage");
-		options.addArguments("--headless");
-		options.addArguments("--window-size=1200,800");
-		// options.addArguments(
-		// "-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,
-		// like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
-		driver = new ChromeDriver(options);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		// driver.manage().window().maximize();
+		
+		
+		 driver = new FirefoxDriver();
+		 System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
 
-		// driver = new ChromeDriver();
-		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		 FirefoxOptions options = new FirefoxOptions();
+		 options.addArguments("--headless");
+		
+		 
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		ChromeOptions options = new ChromeOptions();
+//		// options.addArguments("--no-sandbox");
+//		// options.addArguments("--disable-dev-shm-usage");
+//		options.addArguments("--headless");
+//		options.addArguments("--window-size=1200,800");
+//		// options.addArguments(
+//		// "-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,
+//		// like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+//		driver = new ChromeDriver(options);
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//		// driver.manage().window().maximize();
+//
+//		// driver = new ChromeDriver();
+//		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		amazonHomePage = new AmazonHomePage(driver);
 
 	}
@@ -56,7 +78,7 @@ public class iptvAutoTest {
 		homePage.preeencherSenha();
 		homePage.botaoLogar();
 
-		Thread.sleep(8000);
+		Thread.sleep(7000);
 		String fichas = homePage.obterFichas();
 		int ficha = Integer.parseInt(fichas);
 		homePage.acessarMenuListas();
@@ -93,7 +115,7 @@ public class iptvAutoTest {
 			amazonHomePage.clicarHora();
 			Thread.sleep(1000);
 			amazonHomePage.clicarHora();
-			Thread.sleep(500);
+			Thread.sleep(1000);
 
 			Date dataHoraAtual = new Date();
 
@@ -106,11 +128,11 @@ public class iptvAutoTest {
 			System.out.println("Aqui está a hora" + horaA);
 
 			amazonHomePage.setarHora(horaA);
-			Thread.sleep(500);
-			amazonHomePage.enterHora();
-			Thread.sleep(500);
+			Thread.sleep(1000);
+			//amazonHomePage.enterHora();
+			Thread.sleep(1000);
 			amazonHomePage.clicaComboselect();
-			Thread.sleep(500);
+			Thread.sleep(1000);
 			amazonHomePage.select();
 			Thread.sleep(1000);
 			amazonHomePage.butonSalvar();
@@ -183,7 +205,7 @@ public class iptvAutoTest {
 
 					amazonHomePage.setarHora(horaA);
 					Thread.sleep(500);
-					amazonHomePage.enterHora();
+					//amazonHomePage.enterHora();
 					Thread.sleep(500);
 					amazonHomePage.clicaComboselect();
 					Thread.sleep(500);
@@ -228,7 +250,7 @@ public class iptvAutoTest {
 
 					amazonHomePage.setarHora(horaA);
 					Thread.sleep(500);
-					amazonHomePage.enterHora();
+					//amazonHomePage.enterHora();
 					Thread.sleep(500);
 					amazonHomePage.clicaComboselect();
 					Thread.sleep(500);
@@ -276,7 +298,7 @@ public class iptvAutoTest {
 
 				amazonHomePage.setarHora(horaA);
 				Thread.sleep(500);
-				amazonHomePage.enterHora();
+				//amazonHomePage.enterHora();
 				Thread.sleep(500);
 				amazonHomePage.clicaComboselect();
 				Thread.sleep(500);
