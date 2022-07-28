@@ -47,7 +47,10 @@ public class iptvAutoTest {
 	@Test
 	public void teste() throws InterruptedException {
 		Thread.sleep(3000);
-		homePage.lo();
+		homePage.preencherusuario();
+		homePage.preencherSenha();
+		homePage.botaoLogar();
+
 		Thread.sleep(6000);
 		String fichas = homePage.obterFichas();
 		int ficha = Integer.parseInt(fichas);
@@ -82,7 +85,8 @@ public class iptvAutoTest {
 
 			Date dataHoraAtual = new Date();
 
-			// String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+			// String data = new
+			// SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 			String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 
 			dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 3);
@@ -125,7 +129,8 @@ public class iptvAutoTest {
 
 					// homePage.selecionarPlano25();
 
-					// WebElement myDynamicElement = (new WebDriverWait(driver, 15))
+					// WebElement myDynamicElement = (new WebDriverWait(driver,
+					// 15))
 					// .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div
 
 					// homePage.quantidade();
@@ -153,7 +158,8 @@ public class iptvAutoTest {
 
 					Date dataHoraAtual = new Date();
 
-					// String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+					// String data = new
+					// SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 					String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 
 					dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 3);
@@ -192,7 +198,8 @@ public class iptvAutoTest {
 
 					Date dataHoraAtual = new Date();
 
-					// String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+					// String data = new
+					// SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 					String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 
 					dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 3);
@@ -220,7 +227,8 @@ public class iptvAutoTest {
 				amazonHomePage.clicarMenuLembretesAlarme();
 				Thread.sleep(1000);
 				amazonHomePage.butonAdicionarLembretes();
-				amazonHomePage.escreverlembrete("A data de expiração será "+dataExpiracao+" e têm "+ficha+" créditos no momento");
+				amazonHomePage.escreverlembrete(
+						"A data de expiração será " + dataExpiracao + " e têm " + ficha + " créditos no momento");
 				amazonHomePage.clicarData();
 				// Thread.sleep(3000);
 				// amazonHomePage.enterData();
@@ -233,7 +241,8 @@ public class iptvAutoTest {
 
 				Date dataHoraAtual = new Date();
 
-				// String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+				// String data = new
+				// SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 				String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 
 				dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 3);
