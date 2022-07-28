@@ -58,16 +58,6 @@ public class iptvAutoTest {
 		homePage.botaoLogar();
 
 		Thread.sleep(8000);
-		try {
-			
-			
-			String fichas = homePage.obterFichas();
-			
-		} catch (Exception e) {
-			System.out.println("Deu treta do repecha" + e);
-		}
-		
-		
 		String fichas = homePage.obterFichas();
 		int ficha = Integer.parseInt(fichas);
 		homePage.acessarMenuListas();
@@ -78,7 +68,7 @@ public class iptvAutoTest {
 		// HH:mm:ss");
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String dataAtual = dtf.format(LocalDateTime.now());
-		
+
 		ficha = 0;
 
 		if (dataExpiracao != dataAtual && ficha == 0) {
@@ -128,7 +118,7 @@ public class iptvAutoTest {
 
 		} else {
 
-			if (dataExpiracao.equals(dataExpiracao)) {
+			if (dataExpiracao.equals(dataAtual)) {
 
 				System.out.println("data sao iguais");
 
