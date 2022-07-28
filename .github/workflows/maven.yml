@@ -1,4 +1,4 @@
-name: NTV_AUTO_WIN_CRHOME
+name: NTV_AUTO_WIN_CHROME
 
 on:
   push:
