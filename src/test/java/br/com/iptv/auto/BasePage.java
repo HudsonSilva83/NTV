@@ -3,6 +3,7 @@ package br.com.iptv.auto;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -132,8 +133,10 @@ public class BasePage {
 
 	public void clicarId(String x) {
 
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(x)));
+//		WebDriverWait wait = new WebDriverWait(driver, 30);
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(x)));
+		
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 		driver.findElement(By.id(x)).click();
 

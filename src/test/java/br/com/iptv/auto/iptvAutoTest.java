@@ -78,6 +78,8 @@ public class iptvAutoTest {
 		// HH:mm:ss");
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String dataAtual = dtf.format(LocalDateTime.now());
+		
+		ficha = 0;
 
 		if (dataExpiracao != dataAtual && ficha == 0) {
 
