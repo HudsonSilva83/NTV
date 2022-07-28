@@ -48,7 +48,6 @@ public class iptvAutoTest {
 	@Test
 	public void teste() throws InterruptedException {
 
-
 		driver.get("https://pltf.vip/login");
 
 		homePage = new iptvHomePage(driver);
@@ -58,8 +57,7 @@ public class iptvAutoTest {
 		homePage.preeencherSenha();
 		homePage.botaoLogar();
 
-
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 		String fichas = homePage.obterFichas();
 		int ficha = Integer.parseInt(fichas);
 		homePage.acessarMenuListas();
@@ -140,19 +138,16 @@ public class iptvAutoTest {
 
 					// homePage.selecionarPlano25();
 
-
 					// homePage.quantidade();
 
 					homePage.botaoRenovar();
 
-
 					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
-					
 
 					Thread.sleep(1000);
 
 					driver.manage().window().setSize(d);
-					
+
 					amazonHomePage.autenticarAmazon();
 					Thread.sleep(7000);
 					amazonHomePage.clicarMenuLembretesAlarme();
@@ -192,12 +187,11 @@ public class iptvAutoTest {
 
 				} else {
 
-				
 					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 					driver.manage().window().setSize(d);
 
 					Thread.sleep(1000);
-					
+
 					amazonHomePage.autenticarAmazon();
 					Thread.sleep(7000);
 					amazonHomePage.clicarMenuLembretesAlarme();
@@ -238,10 +232,8 @@ public class iptvAutoTest {
 
 			} else {
 
-				
-
 				amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
-				
+
 				driver.manage().window().setSize(d);
 
 				Thread.sleep(1000);
