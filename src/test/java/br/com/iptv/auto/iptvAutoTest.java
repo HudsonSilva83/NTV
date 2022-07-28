@@ -48,14 +48,17 @@ public class iptvAutoTest {
 	@Test
 	public void teste() throws InterruptedException {
 
+
 		driver.get("https://pltf.vip/login");
 
 		homePage = new iptvHomePage(driver);
 		amazonHomePage = new AmazonHomePage(driver);
-		Thread.sleep(8000);
+		Thread.sleep(6000);
 		homePage.preeencherUsuario();
 		homePage.preeencherSenha();
 		homePage.botaoLogar();
+
+
 		Thread.sleep(6000);
 		String fichas = homePage.obterFichas();
 		int ficha = Integer.parseInt(fichas);
@@ -93,7 +96,8 @@ public class iptvAutoTest {
 
 			Date dataHoraAtual = new Date();
 
-			// String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+			// String data = new
+			// SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 			String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 
 			dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 3);
@@ -136,6 +140,7 @@ public class iptvAutoTest {
 
 					// homePage.selecionarPlano25();
 
+
 					// homePage.quantidade();
 
 					homePage.botaoRenovar();
@@ -164,7 +169,8 @@ public class iptvAutoTest {
 
 					Date dataHoraAtual = new Date();
 
-					// String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+					// String data = new
+					// SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 					String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 
 					dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 3);
@@ -205,7 +211,8 @@ public class iptvAutoTest {
 
 					Date dataHoraAtual = new Date();
 
-					// String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+					// String data = new
+					// SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 					String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 
 					dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 3);
@@ -248,7 +255,8 @@ public class iptvAutoTest {
 
 				Date dataHoraAtual = new Date();
 
-				// String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+				// String data = new
+				// SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 				String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 
 				dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 3);

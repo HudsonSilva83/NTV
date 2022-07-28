@@ -13,6 +13,7 @@ public class iptvHomePage extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 
+<<<<<<< HEAD
 	public void botaoLogar() throws InterruptedException {
 
 		clicar(By.xpath("//*[@id=\"aa4751x2\"]/div/main/div/div/div/div/div/form/div/div[2]/div[4]/button/span"));
@@ -31,8 +32,40 @@ public class iptvHomePage extends BasePage {
 
 		clicar(By.id("input-17"));
 		escrever(By.id("input-17"), "hpereira7");
+=======
+	
+	
+	
+	public void preencherusuario(){
+		
+		
+		clicar(By.id("input-13"));
+		escrever(By.id("input-13"), "hudsonsilva");
+		
+		
+		
+	}
+	
+	
+	public void preencherSenha(){
+		
+		
+		clicar(By.id("input-17"));
+		escrever(By.id("input-17"), "hpereira7");
+		
+		
+		
+	}
+	
+public void botaoLogar() {
+		
+		
+		clicar(By.xpath("//*[@id=\"aa4751x2\"]/div/main/div/div/div/div/div/form/div/div[2]/div[4]/button/span"));
+>>>>>>> f69c6fa8dbf28c12bc52f970c1623ecf422b6c9d
 
 	}
+	
+	
 
 	public String obterFichas() {
 
