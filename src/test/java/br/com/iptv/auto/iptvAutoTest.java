@@ -145,11 +145,14 @@ public class iptvAutoTest {
 
 					homePage.botaoRenovar();
 
+
+					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
+					
+
 					Thread.sleep(1000);
 
 					driver.manage().window().setSize(d);
-
-					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
+					
 					amazonHomePage.autenticarAmazon();
 					Thread.sleep(7000);
 					amazonHomePage.clicarMenuLembretesAlarme();
@@ -189,10 +192,12 @@ public class iptvAutoTest {
 
 				} else {
 
+				
+					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 					driver.manage().window().setSize(d);
 
 					Thread.sleep(1000);
-					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
+					
 					amazonHomePage.autenticarAmazon();
 					Thread.sleep(7000);
 					amazonHomePage.clicarMenuLembretesAlarme();
@@ -233,9 +238,13 @@ public class iptvAutoTest {
 
 			} else {
 
-				driver.manage().window().setSize(d);
+				
 
 				amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
+				
+				driver.manage().window().setSize(d);
+
+				Thread.sleep(1000);
 				amazonHomePage.autenticarAmazon();
 				Thread.sleep(7000);
 				amazonHomePage.clicarMenuLembretesAlarme();
