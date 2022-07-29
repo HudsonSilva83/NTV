@@ -94,7 +94,7 @@ public class iptvAutoTest {
 		
 		System.out.println("SEGUNDA TELA" + driver.getWindowHandle());
 		
-		WebElement menu = new WebDriverWait(driver, 30)
+		WebElement menu = new WebDriverWait(driver, 60)
 		.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"iTimersAndAlarms\"]")));
 		
 		menu.click();
