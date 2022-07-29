@@ -48,10 +48,12 @@ public class AmazonHomePage extends BasePage {
 
 	public void clicarMenuLembretesAlarme() {
 		
-		
+		  WebElement element = driver.findElement(By.id("iTimersAndAlarms"));
+		  element.click();
+         // String text = element.getText();
 		
 		//clicarId(By.id("iTimersAndAlarms"));
-		clicar(By.xpath("/html/body/div[2]/div[1]/div/div/nav/dl/dd[5]"));
+		//clicar(By.xpath("/html/body/div[2]/div[1]/div/div/nav/dl/dd[5]"));
 		
 	
 		
