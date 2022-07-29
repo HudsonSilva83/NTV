@@ -45,7 +45,7 @@ public class iptvAutoTest {
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		driver = new FirefoxDriver(options);	
-		System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
 		
 		
 //
@@ -94,12 +94,16 @@ public class iptvAutoTest {
 		
 		System.out.println("SEGUNDA TELA" + driver.getWindowHandle());
 		
-		new WebDriverWait(driver, 30)
-		.until(ExpectedConditions.elementToBeClickable(By.id("iTimersAndAlarms")));
+		WebElement menu = new WebDriverWait(driver, 30)
+		.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"iTimersAndAlarms\"]")));
 		
-		WebElement menu = driver.findElement(By.cssSelector("#d-navigate"));
-		Thread.sleep(500);
-		menu.findElement(By.id("iTimersAndAlarms")).click();
+		menu.click();
+		
+		
+//		
+//		WebElement menu = driver.findElement(By.cssSelector("#d-navigate"));
+//		Thread.sleep(500);
+//		menu.findElement(By.id("iTimersAndAlarms")).click();
 		
 
 //		Thread.sleep(5000);
