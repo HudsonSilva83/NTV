@@ -95,7 +95,7 @@ public class iptvAutoTest {
 			amazonHomePage.usu();
 			amazonHomePage.s();
 			amazonHomePage.b();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			
 			amazonHomePage.clicarMenuLembretesAlarme();
 			Thread.sleep(5000);
 			amazonHomePage.butonAdicionarLembretes();

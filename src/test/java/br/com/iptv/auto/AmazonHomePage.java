@@ -48,12 +48,12 @@ public class AmazonHomePage extends BasePage {
 
 	public void clicarMenuLembretesAlarme() {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
-		wait.until (ExpectedConditions.elementToBeClickable (By.id("iTimersAndAlarms")));
+		wait.until(ExpectedConditions.elementToBeClickable (By.id("iTimersAndAlarms")));
 		
 		clicarId("iTimersAndAlarms");
 		
 		
-		//clicar(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/nav[1]/dl[1]/dd[5]"));
+	
 		
 
 	}
