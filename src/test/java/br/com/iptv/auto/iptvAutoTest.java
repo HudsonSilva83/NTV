@@ -39,8 +39,9 @@ public class iptvAutoTest {
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		
-		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");	
+			
 		driver = new FirefoxDriver(options);
+		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
 
 //		ChromeOptions options = new ChromeOptions();
 //		// options.addArguments("--no-sandbox");
@@ -69,13 +70,16 @@ public class iptvAutoTest {
 
 		//amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 		
-		//driver.manage().window().setSize(d);
+		driver.manage().window().setSize(d);
 		Thread.sleep(2000);
 		amazonHomePage.usu();
 		amazonHomePage.s();
 		amazonHomePage.b();
 		Thread.sleep(9000);
-		amazonHomePage.clicarMenuLembretesAlarme();
+		
+		WebElement menu = driver.findElement(By.id("iTimersAndAlarms"));
+		menu.click();
+		//amazonHomePage.clicarMenuLembretesAlarme();
 		Thread.sleep(5000);
 		amazonHomePage.butonAdicionarLembretes();
 		amazonHomePage
