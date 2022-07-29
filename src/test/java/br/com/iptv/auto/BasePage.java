@@ -131,14 +131,15 @@ public class BasePage {
 
 	}
 
-	public void clicarId(String x) {
+	public void clicarId(By by) {
 
 //		WebDriverWait wait = new WebDriverWait(driver, 30);
-//		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(x)));
+//		wait.until(ExpectedConditions.elementToBeClickable (by));
 		
-		//driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.presenceOfElementLocated((by)));
 
-		driver.findElement(By.id(x)).click();
+		driver.findElement(by).click();
 
 	}
 

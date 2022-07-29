@@ -42,15 +42,15 @@ public class AmazonHomePage extends BasePage {
 	
 	public void b() {
 
-		clicarId("signInSubmit");
+		clicarId(By.id("signInSubmit"));
 
 	}
 
 	public void clicarMenuLembretesAlarme() {
-		WebDriverWait wait = new WebDriverWait(driver, 20);
-		wait.until(ExpectedConditions.elementToBeClickable (By.id("iTimersAndAlarms")));
 		
-		clicarId("iTimersAndAlarms");
+		
+		
+		clicarId(By.id("iTimersAndAlarms"));
 		
 		
 	
