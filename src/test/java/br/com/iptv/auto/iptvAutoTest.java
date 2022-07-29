@@ -59,6 +59,7 @@ public class iptvAutoTest {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void teste() throws InterruptedException {
 
@@ -94,7 +95,7 @@ public class iptvAutoTest {
 			amazonHomePage.usu();
 			amazonHomePage.s();
 			amazonHomePage.b();
-			Thread.sleep(9000);
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			amazonHomePage.clicarMenuLembretesAlarme();
 			Thread.sleep(5000);
 			amazonHomePage.butonAdicionarLembretes();
