@@ -57,14 +57,14 @@ public class iptvAutoTest {
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--headless");
-		options.addArguments("--window-size=1200,800");
+		//options.addArguments("--window-size=1200,800");
 		 options.addArguments("-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		//driver.manage().window().maximize();
 
 		//driver = new ChromeDriver();
-		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		amazonHomePage = new AmazonHomePage(driver);
 
 	}
@@ -102,7 +102,6 @@ public class iptvAutoTest {
 	
 		
 	WebElement button = driver.findElement(By.id("iTimersAndAlarms"));
-	
 	js.executeScript("arguments[0].click();", button);
 	
 	
