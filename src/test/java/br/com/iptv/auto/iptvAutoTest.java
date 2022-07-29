@@ -86,7 +86,7 @@ public class iptvAutoTest {
 		//Thread.sleep(9000);
 		
 	
-		//driver.navigate().refresh();
+		driver.navigate().refresh();
 		
 		new WebDriverWait(driver, 30)
 		.until(ExpectedConditions.elementToBeClickable(By.id("iTimersAndAlarms")));
