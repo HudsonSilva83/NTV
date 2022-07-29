@@ -167,12 +167,12 @@ public class iptvAutoTest {
 
 					Thread.sleep(1000);
 
-					driver.manage().window().setSize(d);
-
+					
+					Thread.sleep(2000);
 					amazonHomePage.usu();
 					amazonHomePage.s();
 					amazonHomePage.b();
-
+					driver.manage().window().setSize(d);
 					Thread.sleep(9000);
 					amazonHomePage.clicarMenuLembretesAlarme();
 					Thread.sleep(5000);
