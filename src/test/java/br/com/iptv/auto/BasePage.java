@@ -136,7 +136,7 @@ public class BasePage {
 //		WebDriverWait wait = new WebDriverWait(driver, 30);
 //		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(x)));
 		
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 		driver.findElement(By.id(x)).click();
 

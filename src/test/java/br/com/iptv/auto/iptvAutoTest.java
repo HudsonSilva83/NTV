@@ -94,7 +94,7 @@ public class iptvAutoTest {
 			amazonHomePage.usu();
 			amazonHomePage.s();
 			amazonHomePage.b();
-			Thread.sleep(7000);
+			Thread.sleep(9000);
 			amazonHomePage.clicarMenuLembretesAlarme();
 			Thread.sleep(5000);
 			amazonHomePage.butonAdicionarLembretes();
