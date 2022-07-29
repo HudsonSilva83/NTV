@@ -50,8 +50,8 @@ public class AmazonHomePage extends BasePage {
 		
 		
 		
-		clicarId(By.id("iTimersAndAlarms"));
-		
+		//clicarId(By.id("iTimersAndAlarms"));
+		clicar(By.xpath("/html/body/div[2]/div[1]/div/div/nav/dl/dd[5]"));
 		
 	
 		

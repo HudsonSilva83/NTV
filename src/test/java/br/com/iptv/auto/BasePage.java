@@ -114,11 +114,11 @@ public class BasePage {
 	}
 
 	public void clicar(By by) {
-//		WebDriverWait wait = new WebDriverWait(driver, 30);
-//		wait.until(ExpectedConditions.presenceOfElementLocated((by)));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.presenceOfElementLocated((by)));
 		
-		WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(30))
-		        .until(ExpectedConditions.elementToBeClickable(by));
+//		WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(40))
+//		        .until(ExpectedConditions.elementToBeClickable(by));
 
 		driver.findElement(by).click();
 
