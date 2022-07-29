@@ -72,7 +72,7 @@ public class iptvAutoTest {
         
 		//amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 		
-		driver.manage().window().setSize(d);
+		//driver.manage().window().setSize(d);
 		
 		
 		Thread.sleep(2000);
