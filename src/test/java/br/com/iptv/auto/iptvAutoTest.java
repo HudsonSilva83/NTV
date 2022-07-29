@@ -31,29 +31,25 @@ public class iptvAutoTest {
 
 		
 
-		FirefoxOptions options = new FirefoxOptions();
-		options.addArguments("--headless");
-		options.addArguments("-user-agent=\"Mozilla/103.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
-		//options.addArguments("--window-size=1200,800");
-		options.addArguments("--window-size=1080,1000");
-		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-dev-shm-usage");
-		
-			
-		driver = new FirefoxDriver(options);
+//		FirefoxOptions options = new FirefoxOptions();
+//		options.addArguments("--headless");
+//		options.addArguments("-user-agent=\"Mozilla/103.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+//		//options.addArguments("--window-size=1200,800");
+//		options.addArguments("--window-size=1080,1000");
+//		options.addArguments("--no-sandbox");
+//		options.addArguments("--disable-dev-shm-usage");
+//		driver = new FirefoxDriver(options);	
 		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
 
-//		ChromeOptions options = new ChromeOptions();
-//		// options.addArguments("--no-sandbox");
-//		// options.addArguments("--disable-dev-shm-usage");
-//		options.addArguments("--headless");
-//		options.addArguments("--window-size=1200,800");
-//		// options.addArguments(
-//		// "-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,
-//		// like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
-//		driver = new ChromeDriver(options);
-//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//		// driver.manage().window().maximize();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--headless");
+		options.addArguments("--window-size=1200,800");
+		 options.addArguments("-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+		driver = new ChromeDriver(options);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 //
 //		// driver = new ChromeDriver();
 //		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
