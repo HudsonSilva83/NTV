@@ -7,6 +7,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AmazonHomePage extends BasePage {
 
@@ -45,6 +47,9 @@ public class AmazonHomePage extends BasePage {
 	}
 
 	public void clicarMenuLembretesAlarme() {
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until (ExpectedConditions.elementToBeClickable (By.id("iTimersAndAlarms")));
+		
 		clicarId("iTimersAndAlarms");
 		
 		
