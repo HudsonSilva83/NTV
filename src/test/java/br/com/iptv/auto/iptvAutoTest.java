@@ -70,13 +70,14 @@ public class iptvAutoTest {
 		
 		System.out.println("MESMA " + driver.getWindowHandle());
 		Thread.sleep(2000);
+		WebElement texto = driver.findElement(By.id("auth-signin-button-announce"));
+		System.out.println("TEXTO " + texto.getText());
 		amazonHomePage.usu();
 		amazonHomePage.s();
 		amazonHomePage.b();
-		Thread.sleep(9000);
+		//Thread.sleep(9000);
 		
-		WebElement texto = driver.findElement(By.id("iHome"));
-		System.out.println("TEXTO " + texto.getText());
+	
 //		WebElement menu = driver.findElement(By.cssSelector("#d-navigate"));
 //		Thread.sleep(500);
 //		menu.findElement(By.id("iTimersAndAlarms")).click();
