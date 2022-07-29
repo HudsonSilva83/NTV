@@ -13,11 +13,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.idealized.Javascript;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
@@ -91,12 +93,25 @@ public class iptvAutoTest {
 		amazonHomePage.b();
 		Thread.sleep(9000);
 		
+	JavascriptExecutor js =(JavascriptExecutor) driver;
+	
+	//js.executeScript("document.getElementById('iTimersAndAlarms')", null);
+		
+	//jscriptExecutor.executeScript("arguments[0].click();", hiddenElement); 
+	
 	
 		
-		WebElement clickable = driver.findElement(By.id("iTimersAndAlarms"));
-        new Actions(driver)
-                .clickAndHold(clickable)
-                .perform();
+	WebElement button = driver.findElement(By.id("iTimersAndAlarms"));
+	
+	js.executeScript("arguments[0].click();", button);
+	
+	
+	
+	
+//		WebElement clickable = driver.findElement(By.id("iTimersAndAlarms"));
+//        new Actions(driver)
+//                .clickAndHold(clickable)
+//                .perform();
 		
 		WebElement webElement = driver.findElement(By.id("iTimersAndAlarms"));
 //		webElement.sendKeys(Keys.TAB);
