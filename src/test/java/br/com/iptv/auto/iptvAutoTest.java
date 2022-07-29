@@ -15,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -28,26 +29,18 @@ public class iptvAutoTest {
 	@BeforeEach
 	public void inicio() {
 
-		
-		
-		 
-		 System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
 
-		 FirefoxOptions options = new FirefoxOptions();
-		 options.addArguments("--headless");
+		FirefoxOptions options = new FirefoxOptions();
+		options.addArguments("--headless");
+		options.addArguments("-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+		options.addArguments("--window-size=1200,800");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
 		
-		 driver = new FirefoxDriver(options);
+			
+		driver = new FirefoxDriver(options);
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 //		ChromeOptions options = new ChromeOptions();
 //		// options.addArguments("--no-sandbox");
 //		// options.addArguments("--disable-dev-shm-usage");
@@ -129,7 +122,7 @@ public class iptvAutoTest {
 
 			amazonHomePage.setarHora(horaA);
 			Thread.sleep(1000);
-			//amazonHomePage.enterHora();
+			// amazonHomePage.enterHora();
 			Thread.sleep(1000);
 			amazonHomePage.clicaComboselect();
 			Thread.sleep(1000);
@@ -205,7 +198,7 @@ public class iptvAutoTest {
 
 					amazonHomePage.setarHora(horaA);
 					Thread.sleep(500);
-					//amazonHomePage.enterHora();
+					// amazonHomePage.enterHora();
 					Thread.sleep(500);
 					amazonHomePage.clicaComboselect();
 					Thread.sleep(500);
@@ -250,7 +243,7 @@ public class iptvAutoTest {
 
 					amazonHomePage.setarHora(horaA);
 					Thread.sleep(500);
-					//amazonHomePage.enterHora();
+					// amazonHomePage.enterHora();
 					Thread.sleep(500);
 					amazonHomePage.clicaComboselect();
 					Thread.sleep(500);
@@ -298,7 +291,7 @@ public class iptvAutoTest {
 
 				amazonHomePage.setarHora(horaA);
 				Thread.sleep(500);
-				//amazonHomePage.enterHora();
+				// amazonHomePage.enterHora();
 				Thread.sleep(500);
 				amazonHomePage.clicaComboselect();
 				Thread.sleep(500);
