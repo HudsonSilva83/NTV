@@ -59,6 +59,9 @@ public class AmazonHomePage extends BasePage {
 	}
 
 	public void butonAdicionarLembretes() {
+		
+		
+		
 		clicar("a[class=\"standard-component image-text-nav\"]");
 
 	}

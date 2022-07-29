@@ -1,10 +1,14 @@
 package br.com.iptv.auto;
 
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -17,6 +21,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class iptvAutoTest {
@@ -48,11 +54,11 @@ public class iptvAutoTest {
 		options.addArguments("--window-size=1200,800");
 		 options.addArguments("-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
 		driver = new ChromeDriver(options);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//driver.manage().window().maximize();
 //
 //		// driver = new ChromeDriver();
-//		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		amazonHomePage = new AmazonHomePage(driver);
 
 	}
@@ -68,58 +74,67 @@ public class iptvAutoTest {
 		
 		driver.manage().window().setSize(d);
 		
-		System.out.println("MESMA " + driver.getWindowHandle());
+		
 		Thread.sleep(2000);
-		WebElement texto = driver.findElement(By.id("auth-signin-button-announce"));
-		System.out.println("TEXTO " + texto.getText());
+//		WebElement texto = driver.findElement(By.id("auth-signin-button-announce"));
+//		System.out.println("TEXTO " + texto.getText());
+		
+		
 		amazonHomePage.usu();
 		amazonHomePage.s();
 		amazonHomePage.b();
 		//Thread.sleep(9000);
 		
 	
-//		WebElement menu = driver.findElement(By.cssSelector("#d-navigate"));
-//		Thread.sleep(500);
-//		menu.findElement(By.id("iTimersAndAlarms")).click();
-//		
-//		
-//		//System.out.println("Hudson" + menu);
+		//driver.navigate().refresh();
+		
+		new WebDriverWait(driver, 30)
+		.until(ExpectedConditions.elementToBeClickable(By.id("iTimersAndAlarms")));
+		
+		WebElement menu = driver.findElement(By.cssSelector("#d-navigate"));
+		Thread.sleep(500);
+		menu.findElement(By.id("iTimersAndAlarms")).click();
+		
+
 //		Thread.sleep(5000);
 //		
-//		//amazonHomePage.clicarMenuLembretesAlarme();
+		//amazonHomePage.clicarMenuLembretesAlarme();
 //		WebElement lembrete = driver.findElement(By.cssSelector("#d-app"));
 //		WebElement  lembrete2= lembrete.findElement(By.id("d-page"));
 //		lembrete2.findElement(By.id("d-content"));
 //		WebElement lembrete3 = lembrete2.findElement(By.cssSelector("a[class=\"standard-component image-text-nav\"]"));
+
 //		lembrete3.click();
-//    	Thread.sleep(2000);
-//		//amazonHomePage.butonAdicionarLembretes();
-//		amazonHomePage
-//				.escreverlembrete("A expiração do IPETÊVÊ é 28/08/2022 porém o saldo é de 3");
-//		amazonHomePage.clicarData();
-//		Thread.sleep(3000);
-//
-//		amazonHomePage.clicarHora();
-//		Thread.sleep(1000);
-//		amazonHomePage.clicarHora();
-//		Thread.sleep(1000);
-//
-//		Date dataHoraAtual = new Date();
-//
-//		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
-//
-//		dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 3);
-//		String horaA = new SimpleDateFormat("HH:mm").format(dataHoraAtual);
-//		System.out.println("Aqui está a hora" + horaA);
-//
-//		amazonHomePage.setarHora(horaA);
-//		Thread.sleep(1000);
-//		Thread.sleep(1000);
-//		amazonHomePage.clicaComboselect();
-//		Thread.sleep(1000);
-//		amazonHomePage.select();
-//		Thread.sleep(1000);
-//		amazonHomePage.butonSalvar();
+
+		
+		
+   amazonHomePage.butonAdicionarLembretes();
+		amazonHomePage
+				.escreverlembrete("A expiração do IPETÊVÊ é 28/08/2022 porém o saldo é de 3");
+		amazonHomePage.clicarData();
+		Thread.sleep(3000);
+
+		amazonHomePage.clicarHora();
+		Thread.sleep(1000);
+		amazonHomePage.clicarHora();
+		Thread.sleep(1000);
+
+		Date dataHoraAtual = new Date();
+
+		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
+
+		dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 3);
+		String horaA = new SimpleDateFormat("HH:mm").format(dataHoraAtual);
+		System.out.println("Aqui está a hora" + horaA);
+
+		amazonHomePage.setarHora(horaA);
+		Thread.sleep(1000);
+		Thread.sleep(1000);
+		amazonHomePage.clicaComboselect();
+		Thread.sleep(1000);
+		amazonHomePage.select();
+		Thread.sleep(1000);
+		amazonHomePage.butonSalvar();
 		
 		
 		

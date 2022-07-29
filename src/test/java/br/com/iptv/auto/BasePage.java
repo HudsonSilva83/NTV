@@ -109,6 +109,11 @@ public class BasePage {
 
 	public void clicar(String x) {
 
+		
+		new WebDriverWait(driver, 30)
+		.until(ExpectedConditions.elementToBeClickable(By.cssSelector(x)));
+		
+		
 		driver.findElement(By.cssSelector(x)).click();
 
 	}
