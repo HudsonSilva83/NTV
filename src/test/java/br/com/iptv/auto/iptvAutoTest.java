@@ -88,9 +88,9 @@ public class iptvAutoTest {
 
 		if (dataExpiracao != dataAtual && ficha == 0) {
 
-			
+			driver.get("https://alexa.amazon.com.br/");
 
-			amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
+			//amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 			
 			driver.manage().window().setSize(d);
 			Thread.sleep(2000);
