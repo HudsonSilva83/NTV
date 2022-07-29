@@ -29,7 +29,7 @@ public class iptvAutoTest {
 	@BeforeEach
 	public void inicio() {
 
-		System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+		
 
 		FirefoxOptions options = new FirefoxOptions();
 		options.addArguments("--headless");
@@ -38,7 +38,7 @@ public class iptvAutoTest {
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		
-			
+		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");	
 		driver = new FirefoxDriver(options);
 
 //		ChromeOptions options = new ChromeOptions();
