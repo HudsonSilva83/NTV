@@ -13,12 +13,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -37,30 +39,30 @@ public class iptvAutoTest {
 
 		
 
-		FirefoxOptions options = new FirefoxOptions();
-		options.addArguments("--headless");
-		options.addArguments("-user-agent=\"Mozilla/103.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
-		//options.addArguments("--window-size=1200,800");
-		options.addArguments("--window-size=1080,1000");
-		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-dev-shm-usage");
-		driver = new FirefoxDriver(options);	
-		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
-		
-		
-//
-//		ChromeOptions options = new ChromeOptions();
+//		FirefoxOptions options = new FirefoxOptions();
+//		options.addArguments("--headless");
+//		options.addArguments("-user-agent=\"Mozilla/103.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+//		//options.addArguments("--window-size=1200,800");
+//		options.addArguments("--window-size=1080,1000");
 //		options.addArguments("--no-sandbox");
 //		options.addArguments("--disable-dev-shm-usage");
-//		options.addArguments("--headless");
-//		options.addArguments("--window-size=1200,800");
-//		 options.addArguments("-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
-		//driver = new ChromeDriver(options);
-		//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		//driver.manage().window().maximize();
+//		driver = new FirefoxDriver();	
+//		System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+//		
+		
 //
-//		// driver = new ChromeDriver();
-		//System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--headless");
+		options.addArguments("--window-size=1200,800");
+		 options.addArguments("-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+		driver = new ChromeDriver(options);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		//driver.manage().window().maximize();
+
+		//driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		amazonHomePage = new AmazonHomePage(driver);
 
 	}
@@ -87,17 +89,35 @@ public class iptvAutoTest {
 		amazonHomePage.usu();
 		amazonHomePage.s();
 		amazonHomePage.b();
-		//Thread.sleep(9000);
+		Thread.sleep(9000);
 		
 	
+		
+		WebElement clickable = driver.findElement(By.id("iTimersAndAlarms"));
+        new Actions(driver)
+                .clickAndHold(clickable)
+                .perform();
+		
+		WebElement webElement = driver.findElement(By.id("iTimersAndAlarms"));
+//		webElement.sendKeys(Keys.TAB);
+//		webElement.sendKeys(Keys.TAB);
+//		webElement.sendKeys(Keys.TAB);
+		webElement.sendKeys(Keys.ENTER);
+		
+		
+		
+		
+		
+		
+		
 		//driver.navigate().refresh();
 		
-		System.out.println("SEGUNDA TELA" + driver.getWindowHandle());
-		
-		WebElement menu = new WebDriverWait(driver, 60)
-		.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"iTimersAndAlarms\"]")));
-		
-		menu.click();
+//		System.out.println("SEGUNDA TELA" + driver.getWindowHandle());
+//		
+//		WebElement menu = new WebDriverWait(driver, 60)
+//		.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"iTimersAndAlarms\"]")));
+//		
+//		menu.click();
 		
 		
 //		
@@ -118,34 +138,34 @@ public class iptvAutoTest {
 
 		
 		
-   amazonHomePage.butonAdicionarLembretes();
-		amazonHomePage
-				.escreverlembrete("A expiração do IPETÊVÊ é 28/08/2022 porém o saldo é de 3");
-		amazonHomePage.clicarData();
-		Thread.sleep(3000);
-
-		amazonHomePage.clicarHora();
-		Thread.sleep(1000);
-		amazonHomePage.clicarHora();
-		Thread.sleep(1000);
-
-		Date dataHoraAtual = new Date();
-
-		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
-
-		dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 3);
-		String horaA = new SimpleDateFormat("HH:mm").format(dataHoraAtual);
-		System.out.println("Aqui está a hora" + horaA);
-
-		amazonHomePage.setarHora(horaA);
-		Thread.sleep(1000);
-		Thread.sleep(1000);
-		amazonHomePage.clicaComboselect();
-		Thread.sleep(1000);
-		amazonHomePage.select();
-		Thread.sleep(1000);
-		amazonHomePage.butonSalvar();
-		
+//   amazonHomePage.butonAdicionarLembretes();
+//		amazonHomePage
+//				.escreverlembrete("A expiração do IPETÊVÊ é 28/08/2022 porém o saldo é de 3");
+//		amazonHomePage.clicarData();
+//		Thread.sleep(3000);
+//
+//		amazonHomePage.clicarHora();
+//		Thread.sleep(1000);
+//		amazonHomePage.clicarHora();
+//		Thread.sleep(1000);
+//
+//		Date dataHoraAtual = new Date();
+//
+//		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
+//
+//		dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 3);
+//		String horaA = new SimpleDateFormat("HH:mm").format(dataHoraAtual);
+//		System.out.println("Aqui está a hora" + horaA);
+//
+//		amazonHomePage.setarHora(horaA);
+//		Thread.sleep(1000);
+//		Thread.sleep(1000);
+//		amazonHomePage.clicaComboselect();
+//		Thread.sleep(1000);
+//		amazonHomePage.select();
+//		Thread.sleep(1000);
+//		amazonHomePage.butonSalvar();
+//		
 		
 		
 		
