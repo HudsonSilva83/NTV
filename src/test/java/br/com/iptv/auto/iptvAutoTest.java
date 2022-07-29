@@ -38,7 +38,7 @@ public class iptvAutoTest {
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		
-		System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");	
+		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");	
 		driver = new FirefoxDriver(options);
 
 //		ChromeOptions options = new ChromeOptions();
