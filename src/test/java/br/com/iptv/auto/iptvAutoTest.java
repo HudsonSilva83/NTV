@@ -67,21 +67,34 @@ public class iptvAutoTest {
 		
 		
 		driver.get("https://alexa.amazon.com.br/");
-
+        
 		//amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 		
 		driver.manage().window().setSize(d);
+		
+		System.out.println("MESMA " + driver.getWindowHandle());
 		Thread.sleep(2000);
 		amazonHomePage.usu();
 		amazonHomePage.s();
 		amazonHomePage.b();
 		Thread.sleep(9000);
 		
-		WebElement menu = driver.findElement(By.id("iTimersAndAlarms"));
-		menu.click();
-		//amazonHomePage.clicarMenuLembretesAlarme();
+		WebElement menu = driver.findElement(By.cssSelector("#d-navigate"));
+		Thread.sleep(500);
+		menu.findElement(By.id("iTimersAndAlarms")).click();
+		
+		
+		//System.out.println("Hudson" + menu);
 		Thread.sleep(5000);
-		amazonHomePage.butonAdicionarLembretes();
+		
+		//amazonHomePage.clicarMenuLembretesAlarme();
+		WebElement lembrete = driver.findElement(By.cssSelector("#d-app"));
+		WebElement  lembrete2= lembrete.findElement(By.id("d-page"));
+		lembrete2.findElement(By.id("d-content"));
+		WebElement lembrete3 = lembrete2.findElement(By.cssSelector("a[class=\"standard-component image-text-nav\"]"));
+		lembrete3.click();
+    	Thread.sleep(2000);
+		//amazonHomePage.butonAdicionarLembretes();
 		amazonHomePage
 				.escreverlembrete("A expiração do IPETÊVÊ é 28/08/2022 porém o saldo é de 3");
 		amazonHomePage.clicarData();
