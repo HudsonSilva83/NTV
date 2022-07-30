@@ -34,7 +34,7 @@ public class iptvAutoTest {
 	private WebDriver driver;
 	private iptvHomePage homePage;
 	private AmazonHomePage amazonHomePage;
-	Dimension d = new Dimension(1080, 1000);
+	Dimension d = new Dimension(1920,1080);
 
 	@BeforeEach
 	public void inicio() {
@@ -45,7 +45,7 @@ public class iptvAutoTest {
 //		options.addArguments("--headless");
 //		options.addArguments("-user-agent=\"Mozilla/103.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
 //		//options.addArguments("--window-size=1200,800");
-//		options.addArguments("--window-size=1080,1000");
+//		options.addArguments("--window-size=1920,1080");
 //		options.addArguments("--no-sandbox");
 //		options.addArguments("--disable-dev-shm-usage");
 //		driver = new FirefoxDriver();	
@@ -57,7 +57,7 @@ public class iptvAutoTest {
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--headless");
-		options.addArguments("--window-size=1920,1080");
+		options.addArguments("--window-size=1200,800");
 		 options.addArguments("-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
@@ -93,7 +93,16 @@ public class iptvAutoTest {
 		amazonHomePage.b();
 		Thread.sleep(9000);
 		
-	JavascriptExecutor js =(JavascriptExecutor) driver;
+		
+		driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/div/nav/dl/dd[3]")).click();
+		
+		
+		
+		
+		
+		
+		
+	//JavascriptExecutor js =(JavascriptExecutor) driver;
 	
 	//js.executeScript("document.getElementById('iTimersAndAlarms')", null);
 		
@@ -101,8 +110,8 @@ public class iptvAutoTest {
 	
 	
 		
-	WebElement button = driver.findElement(By.id("iTimersAndAlarms"));
-	js.executeScript("arguments[0].click();", button);
+	//WebElement button = driver.findElement(By.id("iTimersAndAlarms"));
+	//js.executeScript("arguments[0].click();", button);
 	
 	
 	
@@ -112,11 +121,11 @@ public class iptvAutoTest {
 //                .clickAndHold(clickable)
 //                .perform();
 		
-		WebElement webElement = driver.findElement(By.id("iTimersAndAlarms"));
+		//WebElement webElement = driver.findElement(By.id("iTimersAndAlarms"));
 //		webElement.sendKeys(Keys.TAB);
 //		webElement.sendKeys(Keys.TAB);
 //		webElement.sendKeys(Keys.TAB);
-		webElement.sendKeys(Keys.ENTER);
+		//webElement.sendKeys(Keys.ENTER);
 		
 		
 		
