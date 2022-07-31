@@ -25,12 +25,7 @@ jobs:
         java-version: '1.8'
         server-id: github 
         settings-path: ${{ github.workspace }} 
-    - name: screen resolution
-      run: |
-        system_profiler SPDisplaysDataType | grep Resolution
-        "/Library/Application Support/VMware Tools/vmware-resolutionSet" 2560 1440
-        system_profiler SPDisplaysDataType | grep Resolution
-
+    
     - name: Build with Maven
       run: |
         system_profiler SPDisplaysDataType | grep Resolution
