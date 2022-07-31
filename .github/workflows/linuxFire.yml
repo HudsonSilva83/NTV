@@ -24,7 +24,7 @@ jobs:
       uses: actions/setup-java@v1
 
       with:
-        firefox-version: "84.0"
+        firefox-version: "99.0"
         
         java-version: '1.8'
         distribution: 'temurin'
