@@ -43,7 +43,12 @@ public class iptvAutoTest {
 
 		FirefoxOptions options = new FirefoxOptions();
 		options.addArguments("--headless");
-		//options.addArguments("--user-agent=\"Mozilla/84.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+		
+		String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36 OPR/60.0.3255.170";
+		options.addPreference("general.useragent.override",userAgent);
+		
+		
+		
 		//options.addArguments("--window-size=1200,800");
 		options.addArguments("--window-size=1920,1080");
 		options.addArguments("--no-sandbox");
