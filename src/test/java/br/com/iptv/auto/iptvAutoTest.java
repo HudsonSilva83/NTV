@@ -144,7 +144,7 @@ public class iptvAutoTest {
 		
 		
 		
-		System.out.println("Hudson");
+		System.out.println("Hudson clicou acima");
 		
 		
 		
