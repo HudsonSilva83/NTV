@@ -51,7 +51,7 @@ public class iptvAutoTest {
 		capabilities.setCapability(ChromeOptions.CAPABILITY,options);
 		
 		capabilities.setCapability("browserName", "Chrome");
-		capabilities.setCapability("version","103.00");
+		capabilities.setCapability("version","99.0");
 		
 		capabilities.setCapability("platform", "Windows 10");
 		
