@@ -67,6 +67,7 @@ public class iptvAutoTest {
      	
 	
 		 options.addArguments("--user-agent=\"Mozilla/99.0.4844.51 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+		 options.addArguments("--incognito");
 		driver = new ChromeDriver(options);
 		//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		//driver.manage().window().maximize();
