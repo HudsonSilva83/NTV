@@ -26,9 +26,9 @@ jobs:
         settings-path: ${{ github.workspace }}
         chromedriver-version: '99.0.4844.51'
     - run: |
-       google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+       google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
          xvfb-run --server-args="-screen 0 2880x1800x24" ./run_tests.sh
-         xvfb-run --server-args="-screen 0 2880x1800x24" ./run_tests.sh
+         
    
     - name: Build with Maven
       run: mvn -B package --file pom.xml test
