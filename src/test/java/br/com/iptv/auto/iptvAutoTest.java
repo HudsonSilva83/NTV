@@ -38,6 +38,7 @@ public class iptvAutoTest {
 	Dimension d = new Dimension(1920,1080);
 
 
+	@SuppressWarnings("deprecation")
 	@BeforeEach
 	public void inicio() {
 
@@ -66,7 +67,7 @@ public class iptvAutoTest {
 		
 		options.merge(capabilities);
 		driver = new ChromeDriver(options);
-		
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 				
 
 		
@@ -143,7 +144,7 @@ public class iptvAutoTest {
 		
 		
 		
-		
+		System.out.println("Hudson");
 		
 		
 		
