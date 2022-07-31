@@ -36,9 +36,38 @@ public class iptvAutoTest {
 	private AmazonHomePage amazonHomePage;
 	Dimension d = new Dimension(1920,1080);
 
+
 	@BeforeEach
 	public void inicio() {
 
+	
+		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		options.addArguments("--window-size=1920,1080");
+		
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability(ChromeOptions.CAPABILITY,options);
+		
+		capabilities.setCapability("browserName", "Chrome");
+		capabilities.setCapability("version","99.0");
+		
+		capabilities.setCapability("platform", "Windows 10");
+		
+		capabilities.setCapability("selenium_version","3.13.0");
+		capabilities.setCapability("geoLocation","AM");
+		capabilities.setCapability("driver_version","97.0");
+		
+		options.merge(capabilities);
+		driver = new ChromeDriver(options);
+		
+				
+
+		
+
+		
+		
+		
 		
 
 //		FirefoxOptions options = new FirefoxOptions();
@@ -52,24 +81,24 @@ public class iptvAutoTest {
 //		//options.addArguments("--window-size=1200,800");
 //		options.addArguments("--window-size=1920,1080");
 //		options.addArguments("--no-sandbox");
-//		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--disable-dev-shm-usage");
 //		driver = new FirefoxDriver(options);	
 //		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
 //     	amazonHomePage = new AmazonHomePage(driver);
 //		
 		
 //
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-dev-shm-usage");
-		options.addArguments("--headless");
-		options.addArguments("--window-size=1200,800");
-		options.addArguments("browserVersion", "99");
-		options.addArguments("platformName", "Windows 10");
+//		ChromeOptions options = new ChromeOptions();
+//		options.addArguments("--no-sandbox");
+//		options.addArguments("--disable-dev-shm-usage");
+//		options.addArguments("--headless");
+//		options.addArguments("--window-size=1200,800");
+//		options.addArguments("browserVersion", "99");
+//		options.addArguments("platformName", "Windows 10");
 	
 		 //options.addArguments("--user-agent=\"Mozilla/99.0.4844.51 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
 		 //options.addArguments("--incognito");
-		driver = new ChromeDriver(options);
+		//driver = new ChromeDriver(options);
 		//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		//driver.manage().window().maximize();
 
