@@ -44,13 +44,13 @@ public class iptvAutoTest {
 		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
-		options.addArguments("--window-size=1920,1080");
+		//options.addArguments("--window-size=1920,1080");
 		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(ChromeOptions.CAPABILITY,options);
 		
 		capabilities.setCapability("browserName", "Chrome");
-		capabilities.setCapability("version","99.0");
+		capabilities.setCapability("version","103.00");
 		
 		capabilities.setCapability("platform", "Windows 10");
 		
