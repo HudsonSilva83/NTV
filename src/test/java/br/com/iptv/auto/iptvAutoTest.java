@@ -58,7 +58,7 @@ public class iptvAutoTest {
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--headless");
 		options.addArguments("--window-size=1200,800");
-		 options.addArguments("-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+		 options.addArguments("-user-agent=\"Mozilla/103.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		//driver.manage().window().maximize();
@@ -161,7 +161,7 @@ public class iptvAutoTest {
 
 		
 		
-//   amazonHomePage.butonAdicionarLembretes();
+   amazonHomePage.butonAdicionarLembretes();
 //		amazonHomePage
 //				.escreverlembrete("A expiração do IPETÊVÊ é 28/08/2022 porém o saldo é de 3");
 //		amazonHomePage.clicarData();
