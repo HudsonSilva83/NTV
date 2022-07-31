@@ -41,37 +41,39 @@ public class iptvAutoTest {
 
 		
 
-		FirefoxOptions options = new FirefoxOptions();
-		options.addArguments("--headless");
-		
-		String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36 OPR/60.0.3255.170";
-		options.addPreference("general.useragent.override",userAgent);
-		
-		
-		
-		//options.addArguments("--window-size=1200,800");
-		options.addArguments("--window-size=1920,1080");
-		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-dev-shm-usage");
-		driver = new FirefoxDriver(options);	
-		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
-     	amazonHomePage = new AmazonHomePage(driver);
+//		FirefoxOptions options = new FirefoxOptions();
+//		options.addArguments("--headless");
+//		
+//		String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36 OPR/60.0.3255.170";
+//		options.addPreference("general.useragent.override",userAgent);
+//		
+//		
+//		
+//		//options.addArguments("--window-size=1200,800");
+//		options.addArguments("--window-size=1920,1080");
+//		options.addArguments("--no-sandbox");
+//		options.addArguments("--disable-dev-shm-usage");
+//		driver = new FirefoxDriver(options);	
+//		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+//     	amazonHomePage = new AmazonHomePage(driver);
 //		
 		
 //
-//		ChromeOptions options = new ChromeOptions();
-//		options.addArguments("--no-sandbox");
-//		options.addArguments("--disable-dev-shm-usage");
-//		options.addArguments("--headless");
-//		options.addArguments("--window-size=1200,800");
-//		 options.addArguments("--user-agent=\"Mozilla/99.0.4844.51 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
-//		driver = new ChromeDriver(options);
-//		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-//		//driver.manage().window().maximize();
-//
-//		//driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--headless");
+		options.addArguments("--window-size=1200,800");
+     	
+	
+		 options.addArguments("--user-agent=\"Mozilla/99.0.4844.51 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+		driver = new ChromeDriver(options);
+		//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		//driver.manage().window().maximize();
+
+		//driver = new ChromeDriver();
 //		//System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-//		amazonHomePage = new AmazonHomePage(driver);
+		amazonHomePage = new AmazonHomePage(driver);
 
 	}
 
