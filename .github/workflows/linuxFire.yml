@@ -32,5 +32,4 @@ jobs:
         cache: maven
 
     - name: TesteTV
-      run: firefox --version
-      run: mvn -B package --file pom.xml
+        run: mvn -B package --file pom.xml
