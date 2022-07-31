@@ -25,6 +25,8 @@ jobs:
 
       with:
         firefox-version: "84.0"
+        - run: |
+          firefox --version
         java-version: '1.8'
         distribution: 'temurin'
         server-id: github
