@@ -44,7 +44,7 @@ public class iptvAutoTest {
 		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
-		//options.addArguments("--window-size=1920,1080");
+		//options.addArguments("--window-size=1920,1080);
 		options.addArguments("--user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
 		options.addArguments("--disable-dev-shm-usage");
 		DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -60,7 +60,7 @@ public class iptvAutoTest {
 		capabilities.setCapability("driver_version","97.0");
 		
 		options.merge(capabilities);
-		driver = new ChromeDriver(options);
+		driver = new ChromeDriver();
 		
 				
 
@@ -118,7 +118,7 @@ public class iptvAutoTest {
         
 		//amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 		
-		//driver.manage().window().setSize(d);
+		driver.manage().window().setSize(d);
 		
 		
 		Thread.sleep(2000);
