@@ -64,8 +64,8 @@ public class iptvAutoTest {
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--headless");
 		options.addArguments("--window-size=1200,800");
-		options.setCapability("browserVersion", "99");
-		options.setCapability("platformName", "Windows 10");
+		options.addArguments("browserVersion", "99");
+		options.addArguments("platformName", "Windows 10");
 	
 		 //options.addArguments("--user-agent=\"Mozilla/99.0.4844.51 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
 		 //options.addArguments("--incognito");
