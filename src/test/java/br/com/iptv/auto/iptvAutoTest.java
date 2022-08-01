@@ -10,6 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
+import org.apache.commons.mail.EmailException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -35,47 +36,35 @@ public class iptvAutoTest {
 	private WebDriver driver;
 	private iptvHomePage homePage;
 	private AmazonHomePage amazonHomePage;
-	Dimension d = new Dimension(1920,1080);
-
+	Dimension d = new Dimension(1920, 1080);
 
 	@SuppressWarnings("deprecation")
 	@BeforeEach
 	public void inicio() {
 
-	
-		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--headless");
-		options.addArguments("--window-size=1920,1080");
-		options.addArguments("--user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
-		
-		
-		
+		//options.addArguments("--window-size=1920,1080");
+		options.addArguments(
+				"--user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability(ChromeOptions.CAPABILITY,options);
-		
+		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+
 		capabilities.setCapability("browserName", "Chrome");
-		capabilities.setCapability("version","99.0");
-		
+		capabilities.setCapability("version", "99.0");
+
 		capabilities.setCapability("platform", "Windows 10");
-		
-		capabilities.setCapability("selenium_version","3.13.0");
-		capabilities.setCapability("geoLocation","AM");
-		capabilities.setCapability("driver_version","97.0");
-		
+
+		capabilities.setCapability("selenium_version", "3.13.0");
+		capabilities.setCapability("geoLocation", "AM");
+		capabilities.setCapability("driver_version", "97.0");
+
 		options.merge(capabilities);
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-				
-
-		
-
-		
-		
-		
-		
 
 //		FirefoxOptions options = new FirefoxOptions();
 //		options.addArguments("--headless");
@@ -88,12 +77,12 @@ public class iptvAutoTest {
 //		//options.addArguments("--window-size=1200,800");
 //		options.addArguments("--window-size=1920,1080");
 //		options.addArguments("--no-sandbox");
-		//options.addArguments("--disable-dev-shm-usage");
+		// options.addArguments("--disable-dev-shm-usage");
 //		driver = new FirefoxDriver(options);	
 //		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
 //     	amazonHomePage = new AmazonHomePage(driver);
 //		
-		
+
 //
 //		ChromeOptions options = new ChromeOptions();
 //		options.addArguments("--no-sandbox");
@@ -102,102 +91,86 @@ public class iptvAutoTest {
 //		options.addArguments("--window-size=1200,800");
 //		options.addArguments("browserVersion", "99");
 //		options.addArguments("platformName", "Windows 10");
-	
-		 //options.addArguments("--user-agent=\"Mozilla/99.0.4844.51 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
-		 //options.addArguments("--incognito");
-		//driver = new ChromeDriver(options);
-		//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		//driver.manage().window().maximize();
 
-		//driver = new ChromeDriver();
+		// options.addArguments("--user-agent=\"Mozilla/99.0.4844.51 (X11; Linux x86_64)
+		// AppleWebKit/537.36 (KHTML,like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+		// options.addArguments("--incognito");
+		// driver = new ChromeDriver(options);
+		// driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		// driver.manage().window().maximize();
+
+		// driver = new ChromeDriver();
 //		//System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-		amazonHomePage = new AmazonHomePage(driver);
+//		amazonHomePage = new AmazonHomePage(driver);
 
 	}
 
-	@SuppressWarnings("deprecation")
 	@Test
-	public void teste() throws InterruptedException {
-		
-		
-		driver.get("https://alexa.amazon.com.br/");
-        
-		//amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
-		
-		driver.manage().window().setSize(d);
-		
-		
-		Thread.sleep(2000);
+	public void teste() throws InterruptedException, EmailException {
+
+		// driver.get("https://alexa.amazon.com.br/");
+
+		// amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
+
+//		driver.manage().window().setSize(d);
+
+//		Thread.sleep(2000);
 //		WebElement texto = driver.findElement(By.id("auth-signin-button-announce"));
-		
-		System.out.println("PRIMEIRA TELA" + driver.getWindowHandle());
+
+//		System.out.println("PRIMEIRA TELA" + driver.getWindowHandle());
 //		System.out.println("TEXTO " + texto.getText());
-		
-		
-		amazonHomePage.usu();
-		amazonHomePage.s();
-		amazonHomePage.b();
-		Thread.sleep(14000);
-		
-		
-		driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/div/nav/dl/dd[3]")).click();
-		
-		
-		
-		System.out.println("Hudson clicou acima");
-		
-		
-		
-	//JavascriptExecutor js =(JavascriptExecutor) driver;
-	
-	//js.executeScript("document.getElementById('iTimersAndAlarms')", null);
-		
-	//jscriptExecutor.executeScript("arguments[0].click();", hiddenElement); 
-	
-	
-		
-	//WebElement button = driver.findElement(By.id("iTimersAndAlarms"));
-	//js.executeScript("arguments[0].click();", button);
-	
-	
-	
-	
+
+//		
+//		amazonHomePage.usu();
+//		amazonHomePage.s();
+//		amazonHomePage.b();
+//		Thread.sleep(14000);
+//		
+//		
+//		driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/div/nav/dl/dd[3]")).click();
+//		
+//		
+//		
+//		System.out.println("Hudson clicou acima");
+//		
+
+		// JavascriptExecutor js =(JavascriptExecutor) driver;
+
+		// js.executeScript("document.getElementById('iTimersAndAlarms')", null);
+
+		// jscriptExecutor.executeScript("arguments[0].click();", hiddenElement);
+
+		// WebElement button = driver.findElement(By.id("iTimersAndAlarms"));
+		// js.executeScript("arguments[0].click();", button);
+
 //		WebElement clickable = driver.findElement(By.id("iTimersAndAlarms"));
 //        new Actions(driver)
 //                .clickAndHold(clickable)
 //                .perform();
-		
-		//WebElement webElement = driver.findElement(By.id("iTimersAndAlarms"));
+
+		// WebElement webElement = driver.findElement(By.id("iTimersAndAlarms"));
 //		webElement.sendKeys(Keys.TAB);
 //		webElement.sendKeys(Keys.TAB);
 //		webElement.sendKeys(Keys.TAB);
-		//webElement.sendKeys(Keys.ENTER);
-		
-		
-		
-		
-		
-		
-		
-		//driver.navigate().refresh();
-		
+		// webElement.sendKeys(Keys.ENTER);
+
+		// driver.navigate().refresh();
+
 //		System.out.println("SEGUNDA TELA" + driver.getWindowHandle());
 //		
 //		WebElement menu = new WebDriverWait(driver, 60)
 //		.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"iTimersAndAlarms\"]")));
 //		
 //		menu.click();
-		
-		
+
 //		
 //		WebElement menu = driver.findElement(By.cssSelector("#d-navigate"));
 //		Thread.sleep(500);
 //		menu.findElement(By.id("iTimersAndAlarms")).click();
-		
 
 //		Thread.sleep(5000);
 //		
-		//amazonHomePage.clicarMenuLembretesAlarme();
+		// amazonHomePage.clicarMenuLembretesAlarme();
 //		WebElement lembrete = driver.findElement(By.cssSelector("#d-app"));
 //		WebElement  lembrete2= lembrete.findElement(By.id("d-page"));
 //		lembrete2.findElement(By.id("d-content"));
@@ -205,9 +178,7 @@ public class iptvAutoTest {
 
 //		lembrete3.click();
 
-		
-		
-   amazonHomePage.butonAdicionarLembretes();
+		// amazonHomePage.butonAdicionarLembretes();
 //		amazonHomePage
 //				.escreverlembrete("A expiração do IPETÊVÊ é 28/08/2022 porém o saldo é de 3");
 //		amazonHomePage.clicarData();
@@ -235,46 +206,40 @@ public class iptvAutoTest {
 //		Thread.sleep(1000);
 //		amazonHomePage.butonSalvar();
 //		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
-//		driver.get("https://pltf.vip/login");
-//
-//		homePage = new iptvHomePage(driver);
-//		amazonHomePage = new AmazonHomePage(driver);
-//		Thread.sleep(6000);
-//		homePage.preeencherUsuario();
-//		homePage.preeencherSenha();
-//		homePage.botaoLogar();
-//
-//		Thread.sleep(7000);
-//		String fichas = homePage.obterFichas();
-//		int ficha = Integer.parseInt(fichas);
-//		homePage.acessarMenuListas();
-//
-//		String dataExpi = homePage.obterDataExpiracao();
-//		String dataExpiracao = dataExpi.substring(0, 10);
-//		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//		String dataAtual = dtf.format(LocalDateTime.now());
-//
-//		ficha = 0;
-//
-//		if (dataExpiracao != dataAtual && ficha == 0) {
-//
-//			driver.get("https://alexa.amazon.com.br/");
-//
-//			//amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
-//			
+		driver.get("https://pltf.vip/login");
+
+		homePage = new iptvHomePage(driver);
+		//amazonHomePage = new AmazonHomePage(driver);
+		Thread.sleep(6000);
+		homePage.preeencherUsuario();
+		homePage.preeencherSenha();
+		homePage.botaoLogar();
+
+		Thread.sleep(7000);
+		String fichas = homePage.obterFichas();
+		
+		System.out.println("FICHAS " + fichas);
+		int ficha = Integer.parseInt(fichas);
+		Thread.sleep(1000);
+		homePage.acessarMenuListas();
+
+		String dataExpi = homePage.obterDataExpiracao();
+		String dataExpiracao = dataExpi.substring(0, 10);
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		String dataAtual = dtf.format(LocalDateTime.now());
+
+	  
+		if (dataExpiracao != dataAtual && ficha == 0) {
+
+			NotificarPorEmail email = new NotificarPorEmail();
+
+			email.EnviarEmail("A expiração do IPTV é " + dataExpiracao + " porém o saldo é de " + ficha);
+
+			// driver.get("https://alexa.amazon.com.br/");
+
+			// amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
+
 //			driver.manage().window().setSize(d);
 //			Thread.sleep(2000);
 //			amazonHomePage.usu();
@@ -310,36 +275,41 @@ public class iptvAutoTest {
 //			amazonHomePage.select();
 //			Thread.sleep(1000);
 //			amazonHomePage.butonSalvar();
-//
-//		} else {
-//
-//			if (dataExpiracao.equals(dataAtual)) {
-//
-//				System.out.println("data sao iguais");
-//
-//				if (ficha > 0) {
-//
-//					Thread.sleep(3000);
-//					homePage.clicarBotaoNilson();
-//					Thread.sleep(1000);
-//					homePage.menuRenovar();
-//					Thread.sleep(5000);
-//
-//					// https://stackoverflow.com/questions/13936167/how-to-deal-with-modaldialog-using-selenium-webdriver
-//					driver.switchTo().activeElement();
-//					Thread.sleep(1000);
-//					homePage.scrollar3();
-//
-//					Thread.sleep(2000);
-//
-//					// homePage.comboSelecionar();
-//					Thread.sleep(2000);
-//
-//					// homePage.selecionarPlano25();
-//					// homePage.quantidade();
-//
-//					homePage.botaoRenovar();
-//
+
+		} else {
+
+			if (dataExpiracao.equals(dataAtual)) {
+
+				System.out.println("data sao iguais");
+
+				if (ficha > 0) {
+
+					Thread.sleep(3000);
+					homePage.clicarBotaoNilson();
+					Thread.sleep(1000);
+					homePage.menuRenovar();
+					Thread.sleep(5000);
+
+					// https://stackoverflow.com/questions/13936167/how-to-deal-with-modaldialog-using-selenium-webdriver
+					driver.switchTo().activeElement();
+					Thread.sleep(1000);
+					homePage.scrollar3();
+					Thread.sleep(2000);
+
+					homePage.comboSelecionar();
+					Thread.sleep(2000);
+
+					homePage.selecionarPlano25();
+					// homePage.quantidade();
+
+					homePage.botaoRenovar();
+
+					NotificarPorEmail email = new NotificarPorEmail();
+
+					email.EnviarEmail("Renovado os créditos para Nilson agora o saldo é de " + (ficha - 1));
+
+					
+					
 //					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 //
 //					Thread.sleep(1000);
@@ -379,9 +349,12 @@ public class iptvAutoTest {
 //					amazonHomePage.select();
 //					Thread.sleep(1000);
 //					amazonHomePage.butonSalvar();
-//
-//				} else {
-//
+
+				} else {
+
+					NotificarPorEmail email = new NotificarPorEmail();
+					email.EnviarEmail("Acabaram os créditos do IPETÊVÊ saldo é de " + ficha);
+					
 //					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 //					driver.manage().window().setSize(d);
 //
@@ -418,11 +391,14 @@ public class iptvAutoTest {
 //					amazonHomePage.select();
 //					Thread.sleep(1000);
 //					amazonHomePage.butonSalvar();
-//
-//				}
-//
-//			} else {
-//
+
+				}
+
+			} else {
+
+				NotificarPorEmail email = new NotificarPorEmail();
+				email.EnviarEmail("A data de expiração será " + dataExpiracao + " e têm \" + ficha + \" créditos no momento");	
+			
 //				amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 //
 //				driver.manage().window().setSize(d);
@@ -459,10 +435,10 @@ public class iptvAutoTest {
 //				amazonHomePage.select();
 //				Thread.sleep(1000);
 //				amazonHomePage.butonSalvar();
-//
-//			}
-//
-//		}
+
+			}
+
+		}
 
 	}
 

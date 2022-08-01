@@ -80,7 +80,7 @@ public class BasePage {
 
 	public String obterTexto(By by) {
 
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.presenceOfElementLocated((by)));
 
 		return driver.findElement(by).getText();

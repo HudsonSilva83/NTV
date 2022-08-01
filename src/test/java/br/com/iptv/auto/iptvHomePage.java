@@ -35,8 +35,7 @@ public class iptvHomePage extends BasePage {
 
 	public String obterFichas() {
 
-		return obterTexto(By.xpath(
-				"/html/body/div[1]/div/div/div/div/div[1]/nav/div[1]/div[1]/div/div[2]/div/div[2]/button"));
+		return obterTexto(By.xpath("//*[@id=\"aa4751x2\"]/div[2]/nav/div[1]/div[1]/div/div[2]/div/div[2]/button"));
 		
 		
 		
