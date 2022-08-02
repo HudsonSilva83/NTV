@@ -125,7 +125,7 @@ public class iptvAutoTest {
 		homePage.preeencherUsuario();
 		homePage.preeencherSenha();
 		homePage.botaoLogar();
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("/html/body/div[2]/div[2]/iframe")));
 
