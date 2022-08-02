@@ -334,9 +334,9 @@ public class iptvAutoTest {
 			} else {
 
 				NotificarPorEmail email = new NotificarPorEmail();
-				email.EnviarEmail(
-						"A data de expiração será " + dataExpiracao + " e têm \" + ficha + \" créditos no momento");
-
+				email.EnviarEmail("A data de expiração será " + dataExpiracao + " e têm " + ficha + " créditos no momento");
+				System.out.println("A data de expiração será " + dataExpiracao + " e têm " + ficha + " créditos no momento");
+                         
 //				amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 //
 //				driver.manage().window().setSize(d);
