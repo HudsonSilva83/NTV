@@ -50,7 +50,7 @@ public class iptvAutoTest {
 		//options.addArguments("start-maximized");
 		options.addArguments("disable-infobars");
 		// options.addArguments("--disable-extensions");
-		//options.addExtensions(new File("C:\\setProfile\\extension_1_3_1_0.crx"));
+		options.addExtensions(new File("C:\\setProfile\\extension_1_3_1_0.crx"));
 		//options.addArguments("--window-size=1820,1080");
 		// options.addArguments(
 		// "--user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
