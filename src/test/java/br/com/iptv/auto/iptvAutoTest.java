@@ -68,6 +68,7 @@ public class iptvAutoTest {
 //		capabilities.setCapability("driver_version", "97.0");
 		// options.merge(capabilities);
 		driver = new ChromeDriver(options);
+		//driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 //		FirefoxOptions options = new FirefoxOptions();
@@ -128,15 +129,15 @@ public class iptvAutoTest {
 		Thread.sleep(7000);
 		
 		
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("/html/body/div[2]/div[2]/iframe")));
-
-		Thread.sleep(3000);
-		
-		WebElement element = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("//*[@id=\"rc-imageselect\"]/div[3]/div[2]/div[1]/div[1]/div[4]")));
-		element.click();
-		Thread.sleep(3000);
+//		WebDriverWait wait = new WebDriverWait(driver, 30);
+//		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("/html/body/div[2]/div[2]/iframe")));
+//
+//		Thread.sleep(3000);
+//		
+//		WebElement element = wait.until(ExpectedConditions
+//				.elementToBeClickable(By.xpath("//*[@id=\"rc-imageselect\"]/div[3]/div[2]/div[1]/div[1]/div[4]")));
+//		element.click();
+//		Thread.sleep(3000);
 		
 		
 		
@@ -147,14 +148,6 @@ public class iptvAutoTest {
 		Thread.sleep(5000);
 		WebDriverWait wait2 = new WebDriverWait(driver, 30);
 		wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div/div/div/div[2]/nav/div[1]/div[1]/div/div[2]/div/div[2]/button")));
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		String fichas = homePage.obterFichas();
