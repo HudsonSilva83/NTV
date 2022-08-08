@@ -50,7 +50,7 @@ public class iptvAutoTest {
 		//options.addArguments("start-maximized");
 		options.addArguments("disable-infobars");
 		// options.addArguments("--disable-extensions");
-		//options.addExtensions(new File("C:\\setProfile\\extension_1_3_1_0.crx"));
+		options.addExtensions(new File("C:\\setProfile\\extension_1_3_1_0.crx"));
 		options.addExtensions(new File("extension_1_3_1_0.crx"));
 		//options.addArguments("--window-size=1820,1080");
 		// options.addArguments(
@@ -116,7 +116,7 @@ public class iptvAutoTest {
 		driver.get("https://pltf.vip/login");
 
 		homePage = new iptvHomePage(driver);
-		// amazonHomePage = new AmazonHomePage(driver);
+		amazonHomePage = new AmazonHomePage(driver);
 		
 		
 		WebDriverWait wait1 = new WebDriverWait(driver, 30);
@@ -131,23 +131,23 @@ public class iptvAutoTest {
 		
 //		WebDriverWait wait = new WebDriverWait(driver, 30);
 //		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("/html/body/div[2]/div[2]/iframe")));
-//
+
 //		Thread.sleep(3000);
-//		
+		
 //		WebElement element = wait.until(ExpectedConditions
 //				.elementToBeClickable(By.xpath("//*[@id=\"rc-imageselect\"]/div[3]/div[2]/div[1]/div[1]/div[4]")));
 //		element.click();
 //		Thread.sleep(3000);
-		
+//		
 		
 		
 
 		//driver.switchTo().defaultContent();
 		// https://crxextractor.com/
-	
-		Thread.sleep(5000);
-		WebDriverWait wait2 = new WebDriverWait(driver, 30);
-		wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div/div/div/div[2]/nav/div[1]/div[1]/div/div[2]/div/div[2]/button")));
+//	
+//		Thread.sleep(5000);
+//		WebDriverWait wait2 = new WebDriverWait(driver, 30);
+//		wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div/div/div/div[2]/nav/div[1]/div[1]/div/div[2]/div/div[2]/button")));
 		
 		
 		String fichas = homePage.obterFichas();
@@ -162,11 +162,21 @@ public class iptvAutoTest {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String dataAtual = dtf.format(LocalDateTime.now());
 
+		
 		if (dataExpiracao != dataAtual && ficha == 0) {
 
+			
+			
 			NotificarPorEmail email = new NotificarPorEmail();
-
-			email.EnviarEmail("A expiração do IPTV é " + dataExpiracao + " porém o saldo é de " + ficha);
+			String mensagem = "A expiração do IPTV é " + dataExpiracao + " porém o saldo é de " + ficha + "Segue o site para creditar: https://simpleiptv.app/cart.php?gid=2 Anna83Iraci, https://pltf.vip/login\r\n"
+					+ "Usuario: hudsonsilva\r\n"
+					+ " hpereira7";
+			whats wts = new whats();
+			wts.mensagem(mensagem);
+			email.EnviarEmail(mensagem);
+			
+			
+			
 
 			// driver.get("https://alexa.amazon.com.br/");
 
@@ -237,8 +247,13 @@ public class iptvAutoTest {
 					homePage.botaoRenovar();
 
 					NotificarPorEmail email = new NotificarPorEmail();
-
-					email.EnviarEmail("Renovado os créditos para Nilson agora o saldo é de " + (ficha - 1));
+					String mensagem = "Renovado os créditos para Nilson agora o saldo é de " + (ficha - 1);
+					whats wts = new whats();
+					wts.mensagem(mensagem);
+					email.EnviarEmail(mensagem);
+					
+					
+				
 
 //					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 //
@@ -283,7 +298,13 @@ public class iptvAutoTest {
 				} else {
 
 					NotificarPorEmail email = new NotificarPorEmail();
-					email.EnviarEmail("Acabaram os créditos do IPETÊVÊ saldo é de " + ficha);
+					String mensagem = "Acabaram os créditos do IPETÊVÊ saldo é de " + ficha+  "Segue o site para creditar: https://simpleiptv.app/cart.php?gid=2 Anna83Iraci, https://pltf.vip/login\r\n"
+							+ "Usuario: hudsonsilva\r\n"
+							+ " hpereira7";
+					whats wts = new whats();
+					wts.mensagem(mensagem);
+					email.EnviarEmail(mensagem);
+					
 
 //					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 //					driver.manage().window().setSize(d);
@@ -327,8 +348,11 @@ public class iptvAutoTest {
 			} else {
 
 				NotificarPorEmail email = new NotificarPorEmail();
-				email.EnviarEmail("A data de expiração será " + dataExpiracao + " e têm " + ficha + " créditos no momento");
-				System.out.println("A data de expiração será " + dataExpiracao + " e têm " + ficha + " créditos no momento");
+				String mensagem = "A data de expiração será " + dataExpiracao + " e têm " + ficha + " créditos no momento";
+				whats wts = new whats();
+				wts.mensagem(mensagem);
+				email.EnviarEmail(mensagem);
+				
                          
 //				amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 //
@@ -373,9 +397,5 @@ public class iptvAutoTest {
 
 	}
 
-	private FluentWait<WebDriver> WebDriverWait(WebDriver driver2, int i) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
