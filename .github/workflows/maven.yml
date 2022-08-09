@@ -7,12 +7,17 @@ on:
     branches: [ "main" ]
   schedule:
     - cron: '0 5,12,17 * * *'
+env:
+     TWILIO_ACCOUNT_SID: ACa9f46cddfd842c87ccc309b2c793fe4c  
+    
 
 jobs:
   NTV_AUTO:
 
     runs-on: windows-latest
-
+    env:
+     TWILIO_AUTH_TOKEN: 9e3c161b4cca9dea20c83c97aa0473d2
+     
     steps:
     - uses: browser-actions/setup-chrome@latest
     - uses: actions/checkout@v2
