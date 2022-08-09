@@ -129,16 +129,16 @@ public class iptvAutoTest {
 		Thread.sleep(7000);
 		
 		
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("/html/body/div[2]/div[2]/iframe")));
-
-		Thread.sleep(3000);
-		
-		WebElement element = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("//*[@id=\"rc-imageselect\"]/div[3]/div[2]/div[1]/div[1]/div[4]")));
-		element.click();
-		Thread.sleep(3000);
-		
+//		WebDriverWait wait = new WebDriverWait(driver, 30);
+//		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("/html/body/div[2]/div[2]/iframe")));
+//
+//		Thread.sleep(3000);
+//		
+//		WebElement element = wait.until(ExpectedConditions
+//				.elementToBeClickable(By.xpath("//*[@id=\"rc-imageselect\"]/div[3]/div[2]/div[1]/div[1]/div[4]")));
+//		element.click();
+//		Thread.sleep(3000);
+//		
 		
 		
 
