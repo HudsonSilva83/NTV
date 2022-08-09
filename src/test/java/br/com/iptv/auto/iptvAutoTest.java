@@ -146,8 +146,9 @@ public class iptvAutoTest {
 		// https://crxextractor.com/
 	
 		
-		//WebDriverWait wait2 = new WebDriverWait(driver, 30);
-		//wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div/div/div/div[2]/nav/div[1]/div[1]/div/div[2]/div/div[2]/button")));
+		@SuppressWarnings("deprecation")
+		WebDriverWait wait2 = new WebDriverWait(driver, 30);
+		wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div/div/div/div[2]/nav/div[1]/div[1]/div/div[2]/div/div[2]/button")));
 		                                                                 
 		
 		String fichas = homePage.obterFichas();
