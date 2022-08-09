@@ -6,8 +6,9 @@ import com.twilio.type.PhoneNumber;
 
 public class whats {
 
-	public static final String ACCOUNT_SID = "ACa9f46cddfd842c87ccc309b2c793fe4c";
-	public static final String AUTH_TOKEN = "cdcdb69eb2a0fa11126d643d76eb8958";
+	public static final String ACCOUNT_SID = System.getenv("TWILIO_ACCOUNT_SID");
+	public static final String AUTH_TOKEN = System.getenv("TWILIO_AUTH_TOKEN");
+
 
 	public void mensagem(String mensagem) {
 		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
