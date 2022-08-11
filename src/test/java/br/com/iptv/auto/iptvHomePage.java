@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class iptvHomePage extends BasePage {
 
@@ -49,6 +51,11 @@ public class iptvHomePage extends BasePage {
 
 	public void acessarMenuListas() throws InterruptedException {
 
+		
+		
+		
+		Thread.sleep(3000);
+		
 		clicar(By.cssSelector("a[href=\"/list\"]"));
 		Thread.sleep(5000);
 		scrollar2();
