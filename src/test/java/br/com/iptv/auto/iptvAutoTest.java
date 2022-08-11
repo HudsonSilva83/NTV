@@ -126,18 +126,18 @@ public class iptvAutoTest {
 		homePage.preeencherUsuario();
 		homePage.preeencherSenha();
 		homePage.botaoLogar();
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		
 		
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("/html/body/div[2]/div[2]/iframe")));
-
-		Thread.sleep(3000);
-		
-		WebElement element = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("//*[@id=\"rc-imageselect\"]/div[3]/div[2]/div[1]/div[1]/div[4]")));
-		element.click();
-		Thread.sleep(3000);
+//		WebDriverWait wait = new WebDriverWait(driver, 50);
+//		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("/html/body/div[2]/div[2]/iframe")));
+//
+//		Thread.sleep(3000);
+//		
+//		WebElement element = wait.until(ExpectedConditions
+//				.elementToBeClickable(By.xpath("//*[@id=\"rc-imageselect\"]/div[3]/div[2]/div[1]/div[1]/div[4]")));
+//		element.click();
+//		Thread.sleep(3000);
 		
 		
 		
@@ -152,8 +152,8 @@ public class iptvAutoTest {
 		                                                                 
 		
 		String fichas = homePage.obterFichas();
+		
 
-		System.out.println("FICHAS " + fichas);
 		int ficha = Integer.parseInt(fichas);
 		Thread.sleep(1000);
 		
@@ -168,7 +168,7 @@ public class iptvAutoTest {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String dataAtual = dtf.format(LocalDateTime.now());
   
-		ficha = 0;
+		
 		
 		if (dataExpiracao != dataAtual && ficha == 0) {
 
@@ -187,21 +187,21 @@ public class iptvAutoTest {
 
 			// driver.get("https://alexa.amazon.com.br/");
 
-			 amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
+//			 amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 
 //			driver.manage().window().setSize(d);
-			Thread.sleep(2000);
-			amazonHomePage.usu();
-			amazonHomePage.s();
-			amazonHomePage.b();
-			Thread.sleep(5000);
-			@SuppressWarnings("deprecation")
-			WebDriverWait wait3= new WebDriverWait(driver, 50);
-			WebElement element2 = wait3.until(ExpectedConditions
-					.elementToBeClickable(By.id("iTimersAndAlarms")));	
-			
-			
-			amazonHomePage.clicarMenuLembretesAlarme();
+//			Thread.sleep(2000);
+//			amazonHomePage.usu();
+//			amazonHomePage.s();
+//			amazonHomePage.b();
+//			Thread.sleep(5000);
+//			@SuppressWarnings("deprecation")
+//			WebDriverWait wait3= new WebDriverWait(driver, 50);
+//			WebElement element2 = wait3.until(ExpectedConditions
+//					.elementToBeClickable(By.id("iTimersAndAlarms")));	
+//			
+//			
+//			amazonHomePage.clicarMenuLembretesAlarme();
 			
 			
 //			Thread.sleep(5000);
