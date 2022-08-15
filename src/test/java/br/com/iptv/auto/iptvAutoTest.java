@@ -32,13 +32,17 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import br.com.iptv.auto.Contador.ArquivoContador;
+
 public class iptvAutoTest {
 
 	private WebDriver driver;
 	private iptvHomePage homePage;
 	private AmazonHomePage amazonHomePage;
 	Dimension d = new Dimension(1920, 1080);
-
+	private ArquivoContador cont = new ArquivoContador();
+    
+    
 	@SuppressWarnings("deprecation")
 	@BeforeEach
 	public void inicio() {
@@ -70,6 +74,8 @@ public class iptvAutoTest {
 		driver = new ChromeDriver(options);
 		//driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		
+	
 
 //		FirefoxOptions options = new FirefoxOptions();
 //		options.addArguments("--headless");
@@ -113,6 +119,8 @@ public class iptvAutoTest {
 	@Test
 	public void teste() throws InterruptedException, EmailException {
 
+		
+		
 		driver.get("https://pltf.vip/login");
 
 		homePage = new iptvHomePage(driver);
@@ -167,13 +175,13 @@ public class iptvAutoTest {
 		String dataExpiracao = dataExpi.substring(0, 10);
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String dataAtual = dtf.format(LocalDateTime.now());
-  
+        
 		
 		
 		if (dataExpiracao != dataAtual && ficha == 0) {
 
-			
-			
+			cont.salvarContador("0");
+						
 			NotificarPorEmail email = new NotificarPorEmail();
 			String mensagem = "A expiração do IPTV é " + dataExpiracao + " porém o saldo é de " + ficha + "Segue o site para creditar: https://simpleiptv.app/cart.php?gid=2 Anna83Iraci, https://pltf.vip/login\r\n"
 					+ "Usuario: hudsonsilva\r\n"
@@ -234,10 +242,13 @@ public class iptvAutoTest {
 //			amazonHomePage.butonSalvar();
 
 		} else {
+			
+			String contador = cont.lerContador();
+			int contArq = Integer.parseInt(contador);
+               
+			if (dataExpiracao.equals(dataAtual) && contArq == 0) {
 
-			if (dataExpiracao.equals(dataAtual)) {
-
-				System.out.println("data sao iguais");
+				System.out.println("data sao iguais e não teve mudança");
 
 				if (ficha > 0) {
 
@@ -248,6 +259,7 @@ public class iptvAutoTest {
 					Thread.sleep(5000);
 
 					// https://stackoverflow.com/questions/13936167/how-to-deal-with-modaldialog-using-selenium-webdriver
+				
 					driver.switchTo().activeElement();
 					Thread.sleep(1000);
 					homePage.scrollar3();
@@ -257,18 +269,20 @@ public class iptvAutoTest {
 					Thread.sleep(2000);
 
 					homePage.selecionarPlano25();
+					
 					// homePage.quantidade();
 
 					homePage.botaoRenovar();
 
+					
+					cont.salvarContador("1");
+										
 					NotificarPorEmail email = new NotificarPorEmail();
-					String mensagem = "Renovado os créditos para Nilson agora o saldo é de " + (ficha - 1);
+					String mensagem = "Renovado os créditos para Nilson agora o saldo é de " + (ficha - 1) + "Contador "+ cont.lerContador();
 					whats wts = new whats();
 					wts.mensagem(mensagem);
 					email.EnviarEmail(mensagem);
-					
-					
-				
+	
 
 //					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
 //
@@ -312,13 +326,16 @@ public class iptvAutoTest {
 
 				} else {
 
+					cont.salvarContador("0");
 					NotificarPorEmail email = new NotificarPorEmail();
 					String mensagem = "Acabaram os créditos do IPETÊVÊ saldo é de " + ficha+  "Segue o site para creditar: https://simpleiptv.app/cart.php?gid=2 Anna83Iraci, https://pltf.vip/login\r\n"
 							+ "Usuario: hudsonsilva\r\n"
-							+ " hpereira7";
+							+ " hpereira7" + "Contador "+ cont.lerContador();
 					whats wts = new whats();
 					wts.mensagem(mensagem);
 					email.EnviarEmail(mensagem);
+					
+					
 					
 
 //					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
@@ -362,8 +379,9 @@ public class iptvAutoTest {
 
 			} else {
 
+				cont.salvarContador("0");
 				NotificarPorEmail email = new NotificarPorEmail();
-				String mensagem = "A data de expiração será " + dataExpiracao + " e têm " + ficha + " créditos no momento";
+				String mensagem = "A data de expiração será " + dataExpiracao + " e têm " + ficha + " créditos no momento" + "Contador "+ cont.lerContador();
 				whats wts = new whats();
 				wts.mensagem(mensagem);
 				email.EnviarEmail(mensagem);
