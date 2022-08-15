@@ -16,7 +16,7 @@ jobs:
 
     runs-on: windows-latest
     env:
-     TWILIO_AUTH_TOKEN: 9e3c161b4cca9dea20c83c97aa0473d2
+     TWILIO_AUTH_TOKEN: ea89bc4c7c17c2be60fe14be712d0fc1
      
     steps:
     - uses: browser-actions/setup-chrome@latest
