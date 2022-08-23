@@ -175,7 +175,8 @@ public class iptvAutoTest {
 		String dataExpiracao = dataExpi.substring(0, 10);
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String dataAtual = dtf.format(LocalDateTime.now());
-        
+       System.out.println("data de expiração "+ dataExpiracao);
+	System.out.println("data atual " + dataAtual);
 		
 		
 		if (dataExpiracao != dataAtual && ficha == 0) {
