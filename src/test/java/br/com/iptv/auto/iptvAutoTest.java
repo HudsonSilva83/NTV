@@ -215,9 +215,10 @@ public class iptvAutoTest {
 										
 					NotificarPorEmail email = new NotificarPorEmail();
 					String mensagem = "Renovado os créditos para Nilson agora o saldo é de " + (ficha - 1) + "Contador "+ cont.lerContador();
+					email.EnviarEmail(mensagem);
 					whats wts = new whats();
 					wts.mensagem(mensagem);
-					email.EnviarEmail(mensagem);	
+						
 		
 		
 		
@@ -225,20 +226,20 @@ public class iptvAutoTest {
 			}
 		
 		
-		if (dataExpiracao != dataAtual && ficha == 0) {
+//		if (dataExpiracao != dataAtual && ficha == 0) {
 
-			cont.salvarContador("0");
+//			cont.salvarContador("0");
 						
-			NotificarPorEmail email = new NotificarPorEmail();
-			String mensagem = "A expiração do IPTV é " + dataExpiracao + " porém o saldo é de " + ficha + "Segue o site para creditar: https://simpleiptv.app/cart.php?gid=2 Anna83Iraci, https://pltf.vip/login\r\n"
-					+ "Usuario: hudsonsilva\r\n"
-					+ " hpereira7";
-			whats wts = new whats();
-			wts.mensagem(mensagem);
-			email.EnviarEmail(mensagem);
+//			NotificarPorEmail email = new NotificarPorEmail();
+//			String mensagem = "A expiração do IPTV é " + dataExpiracao + " porém o saldo é de " + ficha + "Segue o site para creditar: https://simpleiptv.app/cart.php?gid=2 Anna83Iraci, https://pltf.vip/login\r\n"
+//					+ "Usuario: hudsonsilva\r\n"
+//					+ " hpereira7";
+//			whats wts = new whats();
+//			wts.mensagem(mensagem);
+//			email.EnviarEmail(mensagem);
 			
 			
-		}
+//		}
 
 			// driver.get("https://alexa.amazon.com.br/");
 
