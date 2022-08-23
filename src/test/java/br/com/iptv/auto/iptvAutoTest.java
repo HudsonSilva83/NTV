@@ -184,7 +184,8 @@ public class iptvAutoTest {
 		
 		
                System.out.println("Galera " + " "+ dataExpiracao + " " + dataAtual + " " + contArq + ficha);
-		
+		dataExpiracao = "23";
+		dataAtual = "23";
 		if ((dataExpiracao == dataAtual)) {
 			//if ((dataExpiracao == dataAtual) && (contArq == 1) && (ficha > 0)) {
 
