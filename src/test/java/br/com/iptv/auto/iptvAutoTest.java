@@ -175,8 +175,54 @@ public class iptvAutoTest {
 		String dataExpiracao = dataExpi.substring(0, 10);
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String dataAtual = dtf.format(LocalDateTime.now());
-       System.out.println("data de expiração "+ dataExpiracao);
-	System.out.println("data atual " + dataAtual);
+               System.out.println("data de expiração "+ dataExpiracao);
+	       System.out.println("data atual " + dataAtual);
+		
+	
+	                String contador = cont.lerContador();
+			int contArq = Integer.parseInt(contador);
+               
+			if (dataExpiracao.equals(dataAtual) && contArq == 0) {
+
+				System.out.println("data sao iguais e não teve mudança");
+
+				if (ficha > 0) {
+
+					Thread.sleep(3000);
+					homePage.clicarBotaoNilson();
+					Thread.sleep(1000);
+					homePage.menuRenovar();
+					Thread.sleep(5000);
+
+					// https://stackoverflow.com/questions/13936167/how-to-deal-with-modaldialog-using-selenium-webdriver
+				
+					driver.switchTo().activeElement();
+					Thread.sleep(1000);
+					homePage.scrollar3();
+					Thread.sleep(2000);
+
+					homePage.comboSelecionar();
+					Thread.sleep(2000);
+
+					homePage.selecionarPlano25();
+					
+					// homePage.quantidade();
+
+					homePage.botaoRenovar();
+
+					
+					cont.salvarContador("1");
+										
+					NotificarPorEmail email = new NotificarPorEmail();
+					String mensagem = "Renovado os créditos para Nilson agora o saldo é de " + (ficha - 1) + "Contador "+ cont.lerContador();
+					whats wts = new whats();
+					wts.mensagem(mensagem);
+					email.EnviarEmail(mensagem);	
+		
+		
+		
+				}
+			}
 		
 		
 		if (dataExpiracao != dataAtual && ficha == 0) {
@@ -192,7 +238,7 @@ public class iptvAutoTest {
 			email.EnviarEmail(mensagem);
 			
 			
-			
+		}
 
 			// driver.get("https://alexa.amazon.com.br/");
 
@@ -242,47 +288,9 @@ public class iptvAutoTest {
 //			Thread.sleep(1000);
 //			amazonHomePage.butonSalvar();
 
-		} else {
+		
 			
-			String contador = cont.lerContador();
-			int contArq = Integer.parseInt(contador);
-               
-			if (dataExpiracao.equals(dataAtual) && contArq == 0) {
-
-				System.out.println("data sao iguais e não teve mudança");
-
-				if (ficha > 0) {
-
-					Thread.sleep(3000);
-					homePage.clicarBotaoNilson();
-					Thread.sleep(1000);
-					homePage.menuRenovar();
-					Thread.sleep(5000);
-
-					// https://stackoverflow.com/questions/13936167/how-to-deal-with-modaldialog-using-selenium-webdriver
-				
-					driver.switchTo().activeElement();
-					Thread.sleep(1000);
-					homePage.scrollar3();
-					Thread.sleep(2000);
-
-					homePage.comboSelecionar();
-					Thread.sleep(2000);
-
-					homePage.selecionarPlano25();
-					
-					// homePage.quantidade();
-
-					homePage.botaoRenovar();
-
-					
-					cont.salvarContador("1");
-										
-					NotificarPorEmail email = new NotificarPorEmail();
-					String mensagem = "Renovado os créditos para Nilson agora o saldo é de " + (ficha - 1) + "Contador "+ cont.lerContador();
-					whats wts = new whats();
-					wts.mensagem(mensagem);
-					email.EnviarEmail(mensagem);
+			
 	
 
 //					amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
@@ -325,17 +333,17 @@ public class iptvAutoTest {
 //					Thread.sleep(1000);
 //					amazonHomePage.butonSalvar();
 
-				} else {
+				
 
-					cont.salvarContador("0");
-					NotificarPorEmail email = new NotificarPorEmail();
-					String mensagem = "Acabaram os créditos do IPETÊVÊ saldo é de " + ficha+  "Segue o site para creditar: https://simpleiptv.app/cart.php?gid=2 Anna83Iraci, https://pltf.vip/login\r\n"
-							+ "Usuario: hudsonsilva\r\n"
-							+ " hpereira7" + "Contador "+ cont.lerContador();
-					whats wts = new whats();
-					wts.mensagem(mensagem);
-					email.EnviarEmail(mensagem);
-					
+//					cont.salvarContador("0");
+//					NotificarPorEmail email = new NotificarPorEmail();
+//					String mensagem = "Acabaram os créditos do IPETÊVÊ saldo é de " + ficha+  "Segue o site para creditar: https://simpleiptv.app/cart.php?gid=2 Anna83Iraci, https://pltf.vip/login\r\n"
+//							+ "Usuario: hudsonsilva\r\n"
+//							+ " hpereira7" + "Contador "+ cont.lerContador();
+//					whats wts = new whats();
+//					wts.mensagem(mensagem);
+//					email.EnviarEmail(mensagem);
+//					
 					
 					
 
@@ -376,16 +384,16 @@ public class iptvAutoTest {
 //					Thread.sleep(1000);
 //					amazonHomePage.butonSalvar();
 
-				}
+				
 
-			} else {
-
-				cont.salvarContador("0");
-				NotificarPorEmail email = new NotificarPorEmail();
-				String mensagem = "A data de expiração será " + dataExpiracao + " e têm " + ficha + " créditos no momento" + "Contador "+ cont.lerContador();
-				whats wts = new whats();
-				wts.mensagem(mensagem);
-				email.EnviarEmail(mensagem);
+//			} else {
+//
+//				cont.salvarContador("0");
+//				NotificarPorEmail email = new NotificarPorEmail();
+//				String mensagem = "A data de expiração será " + dataExpiracao + " e têm " + ficha + " créditos no momento" + "Contador "+ cont.lerContador();
+//				whats wts = new whats();
+//				wts.mensagem(mensagem);
+//				email.EnviarEmail(mensagem);
 				
                          
 //				amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
@@ -425,9 +433,7 @@ public class iptvAutoTest {
 //				Thread.sleep(1000);
 //				amazonHomePage.butonSalvar();
 
-			}
-
-		}
+		
 
 	}
 
