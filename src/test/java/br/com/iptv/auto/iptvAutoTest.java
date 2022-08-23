@@ -182,7 +182,7 @@ public class iptvAutoTest {
 	                String contador = cont.lerContador();
 			int contArq = Integer.parseInt(contador);
                
-			if (dataExpiracao.equals(dataAtual) && contArq == 0) {
+			if (dataExpiracao == dataAtual && contArq == 0) {
 
 				System.out.println("data sao iguais e não teve mudança");
 
