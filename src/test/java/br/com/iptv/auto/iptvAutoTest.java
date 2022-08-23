@@ -182,11 +182,11 @@ public class iptvAutoTest {
 	                String contador = cont.lerContador();
 			int contArq = Integer.parseInt(contador);
                
-			if (dataExpiracao == dataAtual && contArq == 0) {
+			if ((dataExpiracao == dataAtual) && (contArq == 0) && (ficha > 0)) {
 
 				System.out.println("data sao iguais e não teve mudança");
 
-				if (ficha > 0) {
+				
 
 					Thread.sleep(3000);
 					homePage.clicarBotaoNilson();
@@ -222,7 +222,7 @@ public class iptvAutoTest {
 		
 		
 		
-				}
+				
 			}
 		
 		
